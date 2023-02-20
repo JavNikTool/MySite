@@ -120,7 +120,8 @@ header{
     height: 500px;
     border-radius: 1%;
     background-color:#dfc2c4;
-    border: 2px solid black;
+    border: 2px solid #ff6600;
+    border-left-color: inherit;
     padding-top: 50px;
     transform: translateX(-100%);
     transition: 0.5s;
@@ -146,7 +147,7 @@ header{
 }
 .hiden_nav ul li a{
     text-decoration: none;
-    color: black;
+    color: #ff6600;
     transition: all 0.3s;
     font-size: 26px;
     display: block;
@@ -157,18 +158,16 @@ header{
 .hiden_nav ul li a::after{
     content: " ";
     display: block;
-    background-color: black;
+    background-color: #22acdd;
     height: 3px;
     width: 0;
     margin: 0 auto;
     transition: 0.3s;
 }
 .hiden_nav ul li a:hover::after{
-    color:black;
     width: 100%;
 }
 .hiden_nav ul li a:hover{
-    color:black;
     transform: scale(1.1);
 }
 /*info_block*/
