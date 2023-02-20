@@ -7,7 +7,8 @@ $(document).ready(function(){
         $('.hiden_nav').removeClass('hiden_nav_active');
         $('.button_aside').removeClass('button_aside_active');
     });
-    // if($(".hiden_nav ul li a") == event.target(onclick())){
-    //     $('.hiden_nav').addClass('hiden_nav_active');
-    // }
+    $('.hiden_nav ul li a').click(function (){
+        $('.hiden_nav').removeClass('hiden_nav_active');
+        $('.button_aside').removeClass('button_aside_active');
+    });
 });
