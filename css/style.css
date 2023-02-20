@@ -89,7 +89,7 @@ header{
     background-color: black;
     color:white;
 }
-.flag{
+.button_aside{
     position: fixed;
     width: 50px;
     height: 100px;
@@ -103,10 +103,73 @@ header{
     transform: translate(-30%);
     transition: 0.2s;
     background-color: rgba(255, 102, 0, 0.1);
+    z-index: 10;
+}
+.button_aside_active{
+    transform: translate(-100%);
 }
 
-.flag:hover{
+.button_aside:hover{
     transform: translate(-5%);
+}
+
+.hiden_nav{
+    position: fixed;
+    top: 30%;
+    width: 15%;
+    height: 500px;
+    border-radius: 1%;
+    background-color:#dfc2c4;
+    border: 2px solid black;
+    padding-top: 50px;
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+.hiden_nav .exit{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.hiden_nav_active{
+    transform: translateX(0%);
+}
+.hiden_nav ul{
+   list-style: none;
+    padding-left: 0;
+}
+.hiden_nav ul li{
+
+    padding-top: 50px;
+}
+.hiden_nav ul li a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s;
+    font-size: 26px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.hiden_nav ul li a::after{
+    content: " ";
+    display: block;
+    background-color: black;
+    height: 3px;
+    width: 0;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+.hiden_nav ul li a:hover::after{
+    color:black;
+    width: 100%;
+}
+.hiden_nav ul li a:hover{
+    color:black;
+    transform: scale(1.1);
 }
 /*next block, hz kak nazvat*/
 
