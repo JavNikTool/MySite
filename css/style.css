@@ -1,6 +1,5 @@
 @import "font.css";
 /*header*/
-
 header{
     background-color: black;
     display: flex;
@@ -119,12 +118,27 @@ header{
     width: 15%;
     height: 500px;
     border-radius: 1%;
-    background-color:#dfc2c4;
-    border: 2px solid #ff6600;
+    border: 2px solid black;
     border-left-color: inherit;
     padding-top: 50px;
     transform: translateX(-100%);
     transition: 0.5s;
+    overflow: hidden;
+}
+.hiden_nav::before{
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    width: 120%;
+    height: 120%;
+    left: -10px;
+    right: 0;
+    top: -20px;
+    bottom: 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    z-index: -1;
 }
 .hiden_nav .exit{
     position: absolute;
@@ -201,5 +215,8 @@ header{
     display: inline-block;
     width: 400px;
     height: 300px;
-    background-color: #dfc2c4;
+    padding: 20px;
+    border: 2px solid black;
+    background: inherit;
+    border-radius: 15px;
 }
