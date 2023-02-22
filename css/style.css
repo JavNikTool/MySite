@@ -227,9 +227,24 @@ header{
 .info_block aside{
     display: inline-block;
     width: 400px;
-    height: 300px;
     padding: 20px;
     border: 2px solid black;
     background: inherit;
     border-radius: 15px;
+}
+
+/*footer*/
+
+footer{
+    background-color: black;
+    height: 100px;
+}
+.footer_block{
+    display: flex;
+    color: #ff6600;
+    padding-top: 40px;
+    justify-content: space-between;
+}
+.footer_block p a{
+    color: #bf8a67;
 }
