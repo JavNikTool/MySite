@@ -1,58 +1,24 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="блок программиста Никиты Кремнева"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Blog</title>
-</head>
-<body>
-
-<!--header-->
-<header>
-    <div class="container">
-         <div class="header_main">
-                <div class="header_main_wrap">
-                    <div class="col-sm-2 header_main_logo"><img src="img/logo/css.png" alt="css"></div>
-                    <div class="col-sm-2 header_main_logo"><img src="img/logo/html.png" alt="html"></div>
-                    <div class="col-sm-2 header_main_logo"><img src="img/logo/php.png" alt="php"></div>
-                </div>
-            <p>Добро пожаловать на сайт-персональный блог <span>Никиты Кремнева</span></p>
-            <div class="header_main_photo">
-            <img src="img/photo/photo_2023-02-10_21-38-26.jpg" alt="myPhoto">
-            </div>
-        </div>
-    </div>
-    <span class="log-in">Посетитель</span>
-</header>
+<?php
+require_once 'temp/header.php';
+?>
 
 <!--main block-->
 <section class="main">
-    <span class="button_aside">></span>
+    <?php
+    require_once 'temp/nav_aside.php';
+    ?>
+
     <div class="container">
         <p class="main_text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio commodi minima similique nesciunt itaque at fugit tempora optio asperiores necessitatibus? Possimus laboriosam, ab vitae similique eos id dolores harum illum.
         </p>
         <div class="main_buttons">
             <a href="#" target="_blank">Связь со мной</a>
-            <a href="#" target="_blank">Обо мне</a>
+            <a href="about/index.php" target="_blank">Обо мне</a>
             <a href="#" target="_blank">Перейти в блог</a>
         </div>
     </div>
 
-
-    <div class="hiden_nav">
-        <span class="exit">X</span>
-        <ul>
-            <li><a href="#">Обо мне</a></li>
-            <li><a href="#">Перейти в блог</a></li>
-            <li><a href="#">Связь со мной</a></li>
-        </ul>
-    </div>
 </section>
 
 <!--wrap_block-->
@@ -76,18 +42,6 @@
     </div>
 </section>
 
-<!--footer-->
-
-<footer>
-    <div class="container">
-        <div class="footer_block">
-            <p>Email: <a href="mailto:nikitakremnev0@gmail.com">nikitakremnev0@gmail.com</a></p>
-            <p>Кремнев Никита. 2023.</p>
-        </div>
-    </div>
-</footer>
-
-<script src="js/jquery-3.6.3.min.js"></script>
-<script src="js/script.js"></script>
-</body>
-</html>
+<?php
+require_once 'temp/footer.php';
+?>

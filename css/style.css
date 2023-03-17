@@ -112,7 +112,7 @@ header{
     transform: translate(-5%);
 }
 
-.hiden_nav{
+.hidden_nav{
     position: fixed;
     top: 30%;
     width: 15%;
@@ -125,7 +125,7 @@ header{
     transition: 0.5s;
     overflow: hidden;
 }
-.hiden_nav::before{
+.hidden_nav::before{
     content: "";
     position: absolute;
     background: rgba(255, 255, 255, 0.15);
@@ -140,7 +140,7 @@ header{
     -webkit-backdrop-filter: blur(5.2px);
     z-index: -1;
 }
-.hiden_nav .exit{
+.hidden_nav .exit{
     position: absolute;
     top: 5px;
     right: 10px;
@@ -148,18 +148,18 @@ header{
     font-weight: 500;
     cursor: pointer;
 }
-.hiden_nav_active{
+.hidden_nav_active{
     transform: translateX(0%);
 }
-.hiden_nav ul{
+.hidden_nav ul{
    list-style: none;
     padding-left: 0;
 }
-.hiden_nav ul li{
+.hidden_nav ul li{
 
     padding-top: 50px;
 }
-.hiden_nav ul li a{
+.hidden_nav ul li a{
     text-decoration: none;
     color: #ff6600;
     transition: all 0.3s;
@@ -169,7 +169,7 @@ header{
     margin: 0 auto;
 }
 
-.hiden_nav ul li a::after{
+.hidden_nav ul li a::after{
     content: " ";
     display: block;
     background-color: #22acdd;
@@ -178,17 +178,17 @@ header{
     margin: 0 auto;
     transition: 0.3s;
 }
-.hiden_nav ul li a:hover::after{
+.hidden_nav ul li a:hover::after{
     width: 100%;
 }
-.hiden_nav ul li a:hover{
+.hidden_nav ul li a:hover{
     transform: scale(1.1);
 }
 
 /*wrap_block*/
 .wrap_block{
     background-attachment: fixed;
-    background-image: url("../img/bg2.jpg");
+    background-image: url('../MySite/img/bg2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -209,7 +209,7 @@ header{
     display: inline-block;
 }
 .info_block_quote{
-    background-image: url("../img/paper.png");
+    background-image: url("../MySite/img/paper.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
