@@ -13,9 +13,9 @@ require_once 'temp/header.php';
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio commodi minima similique nesciunt itaque at fugit tempora optio asperiores necessitatibus? Possimus laboriosam, ab vitae similique eos id dolores harum illum.
         </p>
         <div class="main_buttons">
-            <a href="#" target="_blank">Связь со мной</a>
+            <a href="contacts/index.php" target="_blank">Связь со мной</a>
             <a href="about/index.php" target="_blank">Обо мне</a>
-            <a href="#" target="_blank">Перейти в блог</a>
+            <a href="blog/index.php" target="_blank">Перейти в блог</a>
         </div>
     </div>
 

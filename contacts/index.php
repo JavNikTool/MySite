@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/header.php';
 <section>
     <div class="container">
         <div>
-            aefaefaef
+            Контакты
         </div>
     </div>
 </section>

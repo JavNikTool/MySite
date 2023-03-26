@@ -188,7 +188,7 @@ header{
 /*wrap_block*/
 .wrap_block{
     background-attachment: fixed;
-    background-image: url('../MySite/img/bg2.jpg');
+    background-image: url('/img/bg2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -209,7 +209,7 @@ header{
     display: inline-block;
 }
 .info_block_quote{
-    background-image: url("../MySite/img/paper.png");
+    background-image: url("/img/paper.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
