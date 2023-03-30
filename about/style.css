@@ -1,11 +1,30 @@
-section {
+.about_section {
     background-color: antiquewhite;
     padding: 60px 0;
 }
+.about_section .container{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
 .about{
+    z-index: 1;
+    position: relative;
 }
 .about a{
     font-size: 18px;
+}
+.about::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #ff66054f;
+    z-index: -1;
+    left: -7px;
+    top: 1px;
 }
 .title{
 
@@ -47,4 +66,7 @@ hr::before{
 }
 hr:hover{
     transform: scale(1.5);
+}
+.about img{
+    width: 200px;
 }
