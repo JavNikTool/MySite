@@ -13,4 +13,5 @@ $(document).ready(function(){
         $('.button_aside').removeClass('button_aside_active');
     });
 
+
 });

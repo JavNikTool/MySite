@@ -9,6 +9,11 @@
     </div>
 </footer>
 
+
+<script src="/js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 <script src="/js/jquery-3.6.3.min.js"></script>
 <script src="/js/script.js"></script>
 </body>
