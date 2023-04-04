@@ -4,13 +4,27 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/header.php';
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/nav_aside.php';
 ?>
 
-<section>
+<section class="contacts">
     <div class="container">
         <div>
-            Контакты
+            <p>
+                По всем вопросам со мной можно связаться следующим образом:<br><br>
+                <b>Email:</b> <a href="mailto:nikitakremnev0@gmail.com">nikitakremnev0@gmail.com</a><br>
+                <b>Telegram:</b> <a href="https://t.me/JavNikTool" target="_blank">https://t.me/JavNikTool</a>
+            </p>
         </div>
     </div>
+
+    <!--wrap_block-->
+    <section class="wrap_block">
+    </section>
+
+    <!--info_block-->
 </section>
+
+
+
+
 
 
 <?php

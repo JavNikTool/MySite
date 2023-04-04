@@ -2,11 +2,6 @@
     background-color: antiquewhite;
     padding: 60px 0;
 }
-.about_section .container{
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
 .about{
     z-index: 1;
     position: relative;

@@ -12,6 +12,8 @@ $(document).ready(function(){
         $('.hidden_nav').removeClass('hidden_nav_active');
         $('.button_aside').removeClass('button_aside_active');
     });
-
+    $('.log-in').click(function (){
+        $('.registation_form_wrap').addClass('registation_form_active');
+    });
 
 });

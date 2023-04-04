@@ -1,0 +1,40 @@
+.registation_form{
+    position: fixed;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top:30vh;
+    text-align: center;
+    width: 500px;
+    background-color: #dfc2c4;
+    padding: 10px;
+}
+.registation_form_wrap{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.form input{
+    width: 100%;
+    padding: 5px;
+}
+.form .input_text {
+    text-align: left;
+    margin-bottom: 5px;
+}
+.form input:focus{
+    outline: 1px solid black;
+    background-color: #bebebf;
+}
+.form input:hover{
+}
+
+.registation_form_active{
+    display: block;
+}

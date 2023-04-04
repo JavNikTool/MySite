@@ -30,3 +30,5 @@
     </div>
     <span class="log-in">Посетитель</span>
 </header>
+
+<?php require_once 'registation/registation.php'; ?>

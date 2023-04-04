@@ -1,0 +1,11 @@
+.contacts{
+    background-color: antiquewhite;
+    font-size: 18px;
+}
+.contacts .container div{
+    padding: 75px 15px 15px 15px;
+}
+.contacts .wrap_block{
+    height: 350px;
+    margin-top: 100px;
+}
