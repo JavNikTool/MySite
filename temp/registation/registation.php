@@ -4,10 +4,10 @@
             Регистрация
         </h2>
         <form action="" class="form">
-            <p class="input_text">Логин:</p>
-            <input type="text" name="" id=""><br>
-            <p class="input_text">Пароль:</p>
-            <input type="Password" name="" id="">
+            <p class="input_text"><label for="login">Логин:</label></p>
+            <input type="text" name="" id="login"><br><br>
+            <p class="input_text"><label for="password">Пароль:</label></p>
+            <input type="Password" name="" id="password">
         </form>
     </section>
 </div>
