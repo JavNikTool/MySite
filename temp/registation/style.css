@@ -1,46 +1,103 @@
-.registation_form{
+.registation_form,
+.authorization_form
+{
     position: fixed;
     z-index: 10;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    top:30vh;
+    top:20vh;
     text-align: center;
     width: 500px;
-    background-color: #dfc2c4;
-    padding: 10px;
+    background-color: #95dbf5;
+    padding: 30px 30px 0px 30px;
+    border-radius: 15px;
+    border:2px solid black;
+    display: none;
 }
-.registation_form_wrap{
+.registation_form_wrap
+{
     position: fixed;
     z-index: 5;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.25);
-    /*display: none;*/
+    display: none;
 }
 
-.form input{
+.registation_form .form input,
+.authorization_form .form input
+{
     width: 100%;
-    padding: 5px;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 18px;
 }
-.form .input_text {
+.registation_form input[type="text"], .registation_form input[type="password"],
+.authorization_form input[type="text"], .authorization_form input[type="password"]
+{
     text-align: left;
     margin-bottom: 5px;
     cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
 }
-.form .input_text label{
+.registation_form .form label,
+.authorization_form .form label
+{
     margin-bottom: 0;
     cursor: pointer;
     font-size: 20px;
+    font-weight: 600;
 }
-.form input:focus{
+.registation_form .form p,
+.authorization_form .form p
+{
+    margin-bottom: 5px;
+    text-align: start;
+}
+.registation_form .form input:focus,
+.authorization_form .form input:focus
+{
     outline: 1px solid black;
-    background-color: #bebebf;
+    background-color: #edf7ff;
 }
-.form input:hover{
+.registation_form input[type='submit'],
+.authorization_form input[type='submit']
+{
+    margin-top: 80px;
+    width: 60%;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: antiquewhite;
+    border: none;
+    height: 50px;
 }
-
-.registation_form_active{
+.authorization_form input[type='submit']{
+    margin-top: 20px;
+}
+.registation_form .title,
+.authorization_form .title
+{
+    margin-bottom: 20px;
+}
+.form_active{
     display: block;
+}
+.registation_form .form_log-in,
+.authorization_form .form_log-in
+{
+    margin-top: 35px;
+}
+.registation_form .close,
+.authorization_form .close
+{
+    position: absolute;
+    font-size: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    top: 0;
+    left: 466px;
 }
