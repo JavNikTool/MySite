@@ -1,0 +1,62 @@
+.svg-loader{
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    position: fixed;
+    background: rgb(146,205,255);
+    background: linear-gradient(65deg, rgba(146,205,255,1) 25%, rgba(0,212,255,1) 93%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.loader-svg{
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    fill: none;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    stroke: white;
+}
+.loader-svg.bg{
+    stroke-width: 8px;
+    stroke: rgb(243 93 93);
+}
+.svg-container{
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+}
+.animate{
+    stroke-dasharray: 242.6;
+    animation: fill-animation 1s cubic-bezier(1,1,1,1) 0s infinite;
+}
+
+@keyframes fill-animation{
+    0%{
+        stroke-dasharray: 40 242.6;
+        stroke-dashoffset: 0;
+    }
+    50%{
+        stroke-dasharray: 141.3;
+        stroke-dashoffset: 141.3;
+    }
+    100%{
+        stroke-dasharray: 40 242.6;
+        stroke-dashoffset: 282.6;
+    }
+}
+.loaded_hiding .svg-loader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .svg-loader {
+    display: none;
+}

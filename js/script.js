@@ -37,7 +37,7 @@ $(document).ready(function(){
     function closeRegFormByPressing(value){
         if($(".registation_form_wrap").hasClass("form_active")){
             $('html').keydown(function (e){
-                if(e.key == "Escape"){
+                if(e.key === "Escape"){
                     $('.registation_form_wrap').removeClass('form_active');
                     $(value).removeClass('form_active');
                 }
@@ -54,3 +54,14 @@ $(document).ready(function(){
     }
 
 });
+
+/* preloader */
+
+$(window).on('load', function () {
+    $('body').addClass('loaded_hiding');
+    window.setTimeout(function () {
+      $('body').addClass('loaded').removeClass('loaded_hiding');
+    }, 500);
+  });
+
+
