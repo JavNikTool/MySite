@@ -1,3 +1,7 @@
+<?php
+require_once
+    $_SERVER['DOCUMENT_ROOT'] . '/settings/settings_init.php';
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -5,7 +9,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="блог программиста Никиты Кремнева">
+    <meta name="description" content="<?= $settings->list()['description'];
+    ?>">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
@@ -13,7 +18,7 @@
     <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    <title><?php require_once "title.php";?></title>
+    <title><?= $settings->list()['title'];?></title>
 </head>
 <body>
 <!-- preloader -->
