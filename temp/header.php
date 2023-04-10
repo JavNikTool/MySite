@@ -22,6 +22,7 @@
         <circle class="loader-svg bg" cx="50" cy="50" r="45"></circle>
         <circle class="loader-svg animate" cx="50" cy="50" r="45"></circle>
     </svg>
+    <p>Загрузка...</p>
 </div>
 
 <!--header-->
