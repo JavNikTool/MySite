@@ -11,7 +11,9 @@
 
 
 
-<script src="/js/jquery-3.6.3.min.js"></script>
-<script src="/js/script.js"></script>
+<?php
+echo $settings->list()['jqueryPath'];
+echo $settings->list()['jsPath'];
+?>
 </body>
 </html>

@@ -46,7 +46,7 @@ $(document).ready(function(){
     }
     function closeRegFormByClick(value){
         if($(".registation_form_wrap").hasClass("form_active")){
-            $('.registation_form_wrap').click(function (){
+            $('.registation_form_wrap').click(() => {
                 $('.registation_form_wrap').removeClass('form_active');
                 $(value).removeClass('form_active');
             })
@@ -56,13 +56,20 @@ $(document).ready(function(){
 });
 
 /* preloader */
-
-$(window).on('load', function ()
-{
+$(window).on('load',() => {
     $('body').addClass('loaded_hiding');
-    window.setTimeout(function () {
+    window.setTimeout(() => {
         $('body').addClass('loaded').removeClass('loaded_hiding');
     }, 500);
 });
 
 
+/*
+$("a").click(function(event){
+    event.preventDefault();
+    linkLocation = this.href;
+    $("body").fadeOut(500, redirectPage);
+});
+function redirectPage() {
+    window.location = linkLocation;
+}*/
