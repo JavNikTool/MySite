@@ -53,25 +53,33 @@ $(document).ready(function(){
         }
     }
 
-});
+    /* preloader */
 
-/* preloader */
+    /*setInterval($('.preloaderTitle').text(() => {
+    switch (i){
+        case 0:
+            $(this).text("Загрузка.");
+        case 1:
+            return "Загрузка.."
+        case 2:
+            return "Загрузка..."
+    }
 
-$(window).on('load', function ()
-{
-    $('body').addClass('loaded_hiding');
+    }), 200);*/
+    /*$('body').addClass('loaded_hiding');
     window.setTimeout(function () {
         $('body').addClass('loaded').removeClass('loaded_hiding');
-    }, 500);
-});
+    }, 500);*/
 
-$('a.ajax').click(function() {
-    var url = $(this).attr('href');
-    $.ajax({
-        url: url,
-        success: function(data) {
-            $('body').html(data);
-        }
+    $('a.ajax').click(function() {
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            success: function(data) {
+                $('body').html(data);
+            }
+        });
+        return false;
     });
-    return false;
+
 });

@@ -60,7 +60,7 @@
 .loaded .svg-loader {
     display: none;
 }
-.svg-loader p{
+.preloaderTitle{
     font-size: 25px;
     position: absolute;
     margin-top: 85px;
