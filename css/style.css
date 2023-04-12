@@ -25,7 +25,7 @@
     display: flex;
     justify-content: space-between;
 }
-.main_buttons a{
+.main_buttons a.ajax{
     color:black;
     border: 2px solid black;
     text-decoration: none;
@@ -35,7 +35,7 @@
     background-color: antiquewhite;
     transition: 0.4s;
 }
-.main_buttons a:hover{
+.main_buttons a.ajax:hover{
     transform: scale(1.1);
     background-color: black;
     color:white;

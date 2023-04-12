@@ -34,7 +34,7 @@ require_once
 <header>
     <div class="container">
         <div class="header_main">
-            <a href="/" class="header_main_wrap">
+            <a href="/" class="header_main_wrap ajax">
                     <div class="col-sm-2 header_main_logo"><img src="/img/logo/css.png" alt="css"></div>
                     <div class="col-sm-2 header_main_logo"><img src="/img/logo/html.png" alt="html"></div>
                     <div class="col-sm-2 header_main_logo"><img src="/img/logo/php.png" alt="php"></div>
