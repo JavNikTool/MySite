@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/temp/header.php";
         <circle class="loader-svg bg" cx="50" cy="50" r="45"></circle>
         <circle class="loader-svg animate" cx="50" cy="50" r="45"></circle>
     </svg>
-    <p class="preloaderTitle"></p>
+    <p class="preloaderTitle">Загрузка.</p>
 </div>
 
 <!--main block-->

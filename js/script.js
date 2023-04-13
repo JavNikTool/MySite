@@ -55,21 +55,34 @@ $(document).ready(function(){
 
     /* preloader */
 
-    /*setInterval($('.preloaderTitle').text(() => {
-    switch (i){
-        case 0:
-            $(this).text("Загрузка.");
-        case 1:
-            return "Загрузка.."
-        case 2:
-            return "Загрузка..."
+
+
+    let counter = 0;
+   const intervalVar = setInterval(preloaderInterval, 500);
+    function preloaderInterval() {
+        $('.preloaderTitle').text(() => {
+            counter++
+            if(counter > 2){
+                counter = 0;
+            }
+            switch (counter){
+                case 0:
+                    return "Загрузка.";
+                case 1:
+                    return "Загрузка.."
+                case 2:
+                    return "Загрузка..."
+            }
+        })
+        $(document).ready(() =>{
+            clearInterval(intervalVar);
+        });
     }
 
-    }), 200);*/
-    /*$('body').addClass('loaded_hiding');
+    $('body').addClass('loaded_hiding');
     window.setTimeout(function () {
         $('body').addClass('loaded').removeClass('loaded_hiding');
-    }, 500);*/
+    }, 500);
 
     $('a.ajax').click(function() {
         var url = $(this).attr('href');
