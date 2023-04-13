@@ -55,16 +55,12 @@ $(document).ready(function(){
 
     /* preloader */
 
-
-
     let counter = 0;
-   const intervalVar = setInterval(preloaderInterval, 500);
+    const intervalVar = setInterval(preloaderInterval, 500);
     function preloaderInterval() {
         $('.preloaderTitle').text(() => {
             counter++
-            if(counter > 2){
-                counter = 0;
-            }
+            counter > 2 ? counter = 0 : counter;
             switch (counter){
                 case 0:
                     return "Загрузка.";
@@ -83,6 +79,9 @@ $(document).ready(function(){
     window.setTimeout(function () {
         $('body').addClass('loaded').removeClass('loaded_hiding');
     }, 500);
+
+
+    /* Ajax */
 
     $('a.ajax').click(function() {
         var url = $(this).attr('href');
