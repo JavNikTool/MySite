@@ -1,13 +1,20 @@
+*{
+    box-sizing: border-box;
+}
 html {
     height: 100%;
 }
-
 body {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    padding: 0px;
+    margin: 0px;
 }
-
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
 /*header*/
 header{
     background-color: black;
@@ -18,7 +25,6 @@ header{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding-top: 20px;
     padding-bottom: 10px;
 }
 .header_main_wrap{
@@ -39,6 +45,8 @@ header{
     font-size: 23px;
     width: 40%;
     text-align: center;
+    padding: 0px;
+    margin: 20px;
 }
 .header_main p span{
     font-size: 26px;
@@ -171,7 +179,7 @@ footer{
 .footer_block{
     display: flex;
     color: #ff6600;
-    padding-top: 40px;
+    padding-top: 25px;
     justify-content: space-between;
 }
 .footer_block p a{

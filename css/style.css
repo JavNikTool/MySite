@@ -1,6 +1,4 @@
 @import "font.css";
-@import "bootstrap-reboot.min.css";
-@import "bootstrap.min.css";
 @import "/css/preloader.css";
 @import "/temp/style.css";
 @import "/about/style.css";
@@ -9,7 +7,6 @@
 @import "/temp/registation/style.css";
 
 /*main block*/
-
 .main{
     padding: 80px 0;
     position: relative;
@@ -51,7 +48,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    width: 100%;
     height: 200px;
     border: 3px solid black;
 }

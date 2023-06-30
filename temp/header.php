@@ -36,9 +36,9 @@ require_once
     <div class="container">
         <div class="header_main">
             <a href="/index.php" class="header_main_wrap ajax">
-                    <div class="col-sm-2 header_main_logo"><img src="/img/logo/css.png" alt="css"></div>
-                    <div class="col-sm-2 header_main_logo"><img src="/img/logo/html.png" alt="html"></div>
-                    <div class="col-sm-2 header_main_logo"><img src="/img/logo/php.png" alt="php"></div>
+                    <div class="header_main_logo"><img src="/img/logo/css.png" alt="css"></div>
+                    <div class=" header_main_logo"><img src="/img/logo/html.png" alt="html"></div>
+                    <div class="header_main_logo"><img src="/img/logo/php.png" alt="php"></div>
             </a>
             <p>Добро пожаловать на сайт-персональный блог <span>Никиты Кремнева</span></p>
             <div class="header_main_photo">
