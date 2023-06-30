@@ -9,11 +9,9 @@
     </div>
 </footer>
 
-
-
 <?php
-echo $settings->list()['jqueryPath'];
 echo $settings->list()['jsPath'];
+echo $settings->list()['ajax'];
 ?>
 </body>
 </html>

@@ -15,20 +15,27 @@ require_once
     <link rel="manifest" href="/img/favicon/site.webmanifest">
     <?php
     echo $settings->list()['description'];
-    echo $settings->list()['cssBootstrapRebootPath'];
-    echo $settings->list()['cssBootstrapPath'];
     echo $settings->list()['cssPath'];
+    echo $settings->list()['jqueryPath'];
+    echo $settings->list()['preloader'];
     ?>
     <title><?= $settings->list()['title'];?></title>
 </head>
 <body>
-
+<!-- preloader -->
+<div class="svg-loader">
+    <svg class="svg-container" height="100" width="100" viewBox="0 0 100 100">
+        <circle class="loader-svg bg" cx="50" cy="50" r="45"></circle>
+        <circle class="loader-svg animate" cx="50" cy="50" r="45"></circle>
+    </svg>
+    <p class="preloaderTitle">Загрузка.</p>
+</div>
 
 <!--header-->
 <header>
     <div class="container">
         <div class="header_main">
-            <a href="/" class="header_main_wrap ajax">
+            <a href="/index.php" class="header_main_wrap ajax">
                     <div class="col-sm-2 header_main_logo"><img src="/img/logo/css.png" alt="css"></div>
                     <div class="col-sm-2 header_main_logo"><img src="/img/logo/html.png" alt="html"></div>
                     <div class="col-sm-2 header_main_logo"><img src="/img/logo/php.png" alt="php"></div>
