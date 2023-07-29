@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/settings/Settings.php';
 
-$settings = new Settings();
+$settings = Settings::get();
 
 
 

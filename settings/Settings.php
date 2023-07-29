@@ -2,7 +2,21 @@
 
 class Settings
 {
+    private static ?Settings $object;
     private array $properties;
+
+    private function __construct()
+    {
+        $properties = [];
+    }
+
+    private function __clone(): void {}
+
+    public static function get() : Settings
+    {
+        self::$object ??= new self();
+        return self::$object;
+    }
     public function __get(string $key) : ?string
     {
      if(array_key_exists($key, $this->properties)){
