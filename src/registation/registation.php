@@ -3,11 +3,11 @@
         Регистрация
     </h2>
     <form METHOD="post" class="form">
-        <p><label for="login">Логин:</label></p>
-        <input type="text" name="" id="login"><br><br>
+        <p><label for="loginReg">Логин:</label></p>
+        <input type="text" name="" id="loginReg"><br><br>
 
-        <p><label for="password">Пароль:</label></p>
-        <input type="Password" name="name" id="password"><br><br>
+        <p><label for="passwordReg">Пароль:</label></p>
+        <input type="Password" name="name" id="passwordReg"><br><br>
 
         <p><label for="password_valid">Подтвердите пароль:</label></p>
         <input type="Password" name="" id="password_valid">

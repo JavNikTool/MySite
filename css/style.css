@@ -1,10 +1,10 @@
 @import "font.css";
 @import "/css/preloader.css";
 @import "/temp/style.css";
-@import "/about/style.css";
-@import "/contacts/style.css";
-@import "/blog/style.css";
-@import "/temp/registation/style.css";
+@import "/src/about/style.css";
+@import "/src/contacts/style.css";
+@import "/src/blog/style.css";
+@import "/src/registation/style.css";
 
 /*main block*/
 .main{

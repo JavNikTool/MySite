@@ -3,11 +3,11 @@
         Авторизация
     </h2>
     <form METHOD="post" class="form">
-        <p><label for="login">Логин:</label></p>
-        <input type="text" name="" id="login"><br><br>
+        <p><label for="loginAuth">Логин:</label></p>
+        <input type="text" name="" autocomplete="on" id="loginAuth"><br><br>
 
-        <p><label for="password">Пароль:</label></p>
-        <input type="Password" name="" id="password"><br><br>
+        <p><label for="passwordAuth">Пароль:</label></p>
+        <input type="Password" name="" id="passwordAuth"><br><br>
 
         <input type="submit" value="Вход">
     </form>

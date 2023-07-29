@@ -13,9 +13,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/temp/header.php";
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio commodi minima similique nesciunt itaque at fugit tempora optio asperiores necessitatibus? Possimus laboriosam, ab vitae similique eos id dolores harum illum.
         </p>
         <div class="main_buttons">
-            <a class="ajax" href="contacts/index.php">Связь со мной</a>
-            <a class="ajax" href="about/index.php">Обо мне</a>
-            <a class="ajax" href="blog/index.php">Перейти в блог</a>
+            <a class="ajax" href="src/contacts/index.php">Связь со мной</a>
+            <a class="ajax" href="src/about/index.php">Обо мне</a>
+            <a class="ajax" href="src/blog/index.php">Перейти в блог</a>
         </div>
     </div>
 

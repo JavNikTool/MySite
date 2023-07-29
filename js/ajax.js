@@ -1,6 +1,7 @@
 
 /* Ajax */
-$('a.ajax').click(function() {
+$('a.ajax').click(function()
+{
     var url = $(this).attr('href');
     $.ajax({
         url: url,
