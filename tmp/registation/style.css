@@ -74,6 +74,7 @@
     background-color: antiquewhite;
     border: none;
     height: 50px;
+    cursor: pointer;
 }
 .authorization_form input[type='submit']{
     margin-top: 20px;
@@ -100,4 +101,8 @@
     cursor: pointer;
     top: 0;
     left: 466px;
+}
+#passError{
+    font-size: 18px;
+    color: red;
 }

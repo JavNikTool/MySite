@@ -12,6 +12,11 @@
 <?php
 echo $settings->list()['jsPath'];
 echo $settings->list()['ajax'];
+
+if(isset($_GET['reload']) && $_GET['reload'] == 'true'){
+    echo "<script type=\"application/javascript\">regForHandler();</script>";
+    unset($_GET['reload']);
+}
 ?>
 </body>
 </html>

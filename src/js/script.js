@@ -13,6 +13,9 @@ $('.hidden_nav ul li a').click(function (){
 
 /*registation_form*/
 $('.log-in').click(function (){
+    regForHandler();
+});
+function regForHandler(){
     $('.registation_form_wrap').addClass('form_active');
     $('.registation_form').addClass('form_active');
     closeRegFormByPressing(".registation_form");
@@ -21,7 +24,7 @@ $('.log-in').click(function (){
     closeRegFormByClick(".authorization_form");
     CloseBtn(".registation_form");
     CloseBtn(".authorization_form");
-});
+}
 $('.activ_aut_form').click(function (){
     $('.registation_form').removeClass('form_active');
     $('.authorization_form').addClass('form_active');
@@ -30,6 +33,7 @@ function CloseBtn(value) {
     $(value + ' .close').click(function (){
         $('.registation_form_wrap').removeClass('form_active');
         $(value).removeClass('form_active');
+        history.pushState(null, '', '/');
     });
 }
 function closeRegFormByPressing(value){
@@ -38,6 +42,7 @@ function closeRegFormByPressing(value){
             if(e.key === "Escape"){
                 $('.registation_form_wrap').removeClass('form_active');
                 $(value).removeClass('form_active');
+                history.pushState(null, '', '/');
             }
         })
     }
@@ -47,6 +52,7 @@ function closeRegFormByClick(value){
         $('.registation_form_wrap').click(function (){
             $('.registation_form_wrap').removeClass('form_active');
             $(value).removeClass('form_active');
+            history.pushState(null, '', '/');
         })
     }
 }
