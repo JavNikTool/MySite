@@ -2,15 +2,15 @@
     <h2 class="title">
         Регистрация
     </h2>
-    <form METHOD="post" class="form">
+    <form method="POST" action="/tmp/registation/regHandler.php" class="form">
         <p><label for="loginReg">Логин:</label></p>
-        <input type="text" name="" id="loginReg"><br><br>
+        <input type="text" name="loginReg" id="loginReg"><br><br>
 
         <p><label for="passwordReg">Пароль:</label></p>
-        <input type="Password" name="name" id="passwordReg"><br><br>
+        <input type="Password" name="passwordReg" id="passwordReg"><br><br>
 
-        <p><label for="password_valid">Подтвердите пароль:</label></p>
-        <input type="Password" name="" id="password_valid">
+        <!--<p><label for="password_valid">Подтвердите пароль:</label></p>
+        <input type="Password" name="" id="password_valid">-->
 
         <input type="submit" value="регистрация">
     </form>
