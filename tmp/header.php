@@ -1,6 +1,6 @@
 <?php
 require_once
-    $_SERVER['DOCUMENT_ROOT'] . '/settings/settings_init.php';
+    $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
 ?>
 <!doctype html>
 <html lang="ru">
@@ -9,10 +9,10 @@ require_once
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/src/img/favicon/site.webmanifest">
     <?php
     echo $settings->list()['description'];
     echo $settings->list()['cssPath'];
@@ -36,13 +36,13 @@ require_once
     <div class="container">
         <div class="header_main">
             <a href="/index.php" class="header_main_wrap ajax">
-                    <div class="header_main_logo"><img src="/img/logo/css.png" alt="css"></div>
-                    <div class=" header_main_logo"><img src="/img/logo/html.png" alt="html"></div>
-                    <div class="header_main_logo"><img src="/img/logo/php.png" alt="php"></div>
+                    <div class="header_main_logo"><img src="/src/img/logo/css.png" alt="css"></div>
+                    <div class=" header_main_logo"><img src="/src/img/logo/html.png" alt="html"></div>
+                    <div class="header_main_logo"><img src="/src/img/logo/php.png" alt="php"></div>
             </a>
             <p>Добро пожаловать на сайт-персональный блог <span>Никиты Кремнева</span></p>
             <div class="header_main_photo">
-                <img src="/img/photo/ph.jpg" alt="myPhoto">
+                <img src="/src/img/photo/ph.jpg" alt="myPhoto">
             </div>
         </div>
     </div>
@@ -50,6 +50,6 @@ require_once
 </header>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/src/registation/authorization_form.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/src/registation/registation.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/registation/authorization_form.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/registation/registation.php';
 ?>

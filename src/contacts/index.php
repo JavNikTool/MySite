@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/header.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
 ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/nav_aside.php';
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/nav_aside.php';
 ?>
 
 <section class="contacts">
@@ -28,5 +28,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/header.php';
 
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/footer.php';
 ?>

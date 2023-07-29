@@ -1,11 +1,12 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/temp/header.php";
+ini_set('display_errors', E_ALL);
+require_once $_SERVER['DOCUMENT_ROOT'] . "/tmp/header.php";
 ?>
 
 <!--main block-->
 <section class="main">
     <?php
-    require_once 'temp/nav_aside.php';
+    require_once 'tmp/nav_aside.php';
     ?>
 
     <div class="container">
@@ -43,5 +44,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/temp/header.php";
 </section>
 
 <?php
-require_once 'temp/footer.php';
+require_once 'tmp/footer.php';
 ?>

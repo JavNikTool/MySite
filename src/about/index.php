@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/header.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/nav_aside.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/nav_aside.php';
 ?>
 
 <section class="about_section">
@@ -17,7 +17,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/nav_aside.php';
             Я попал в компанию <a href="https://farexpo.ru/" target="_blank">farexpo.</a>
         </div>
         <div>
-            <img src="/img/logo/Logo_FE.png" alt="farexpo">
+            <img src="/src/img/logo/Logo_FE.png" alt="farexpo">
         </div>
         <br>
         <div class="about">
@@ -38,7 +38,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/nav_aside.php';
         <div class="about">
             В быту помимо своего любимого дела, я так же большой фанат музыки (особенно тяжелой), когда-то я даже этим занимался, выступал, но это совсем другая история..
             <br><br>
-            <img src="/img/photo/music.jpg" alt="music">
+            <img src="/src/img/photo/music.jpg" alt="music">
             <br><br>
             Поэтому буду всегда рад обсудить эту тему, возможно именно вы откроете для меня очередную группу, которая не покинет мой плей-лист в течении долгого времени.
         </div>
@@ -47,5 +47,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/nav_aside.php';
 
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/temp/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/footer.php';
 ?>
