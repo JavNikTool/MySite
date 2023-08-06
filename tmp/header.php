@@ -50,6 +50,6 @@ require_once
 </header>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/registation/authorization_form.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/registation/registation.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/reg_auth/authorization/authorization_form.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/reg_auth/registration/registration_form.php';
 ?>

@@ -16,7 +16,7 @@
     border:2px solid black;
     display: none;
 }
-.registation_form_wrap
+.auth_form_wrap
 {
     position: fixed;
     z-index: 5;
@@ -67,6 +67,7 @@
 .authorization_form input[type='submit']
 {
     margin-top: 80px;
+    margin-bottom: 20px;
     width: 60%;
     border-radius: 20px;
     font-size: 20px;

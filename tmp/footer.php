@@ -14,7 +14,7 @@ echo $settings->list()['jsPath'];
 echo $settings->list()['ajax'];
 
 if(isset($_GET['reload']) && $_GET['reload'] == 'true'){
-    echo "<script type=\"application/javascript\">regForHandler();</script>";
+    echo "<script type=\"application/javascript\">regError();</script>";
     unset($_GET['reload']);
 }
 ?>

@@ -2,7 +2,7 @@
     <h2 class="title">
         Регистрация
     </h2>
-    <form method="POST" action="/tmp/registation/regHandler.php" class="form">
+    <form method="POST" action="/tmp/reg_auth/registration/regHandler.php" class="form">
 
         <p><label for="loginReg">Логин:</label></p>
         <input type="text" name="loginReg" id="loginReg"><br><br>
@@ -21,10 +21,9 @@
 
         <input type="submit" value="регистрация">
     </form>
-    <p class="form_log-in">Если вы уже зарегистрированы, нажмите <a href="#" class="activ_aut_form">вход.</a></p>
     <span class="close">X</span>
 </section>
 
-<div class="registation_form_wrap">
+<div class="auth_form_wrap">
 
 </div>

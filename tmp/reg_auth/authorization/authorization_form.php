@@ -12,9 +12,10 @@
         <input type="submit" value="Вход">
     </form>
     <p class="form_log-in">если вы забыли пароль, нажмите <a href="">восстановить пароль.</a></p>
+    <p class="form_log-in"><a href="#" class="activ_aut_form">Регистрация.</a></p>
     <span class="close">X</span>
 </section>
 
-<div class="registation_form_wrap">
+<div class="auth_form_wrap">
 
 </div>

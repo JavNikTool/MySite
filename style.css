@@ -4,7 +4,7 @@
 @import "/src/about/style.css";
 @import "/src/contacts/style.css";
 @import "/src/blog/style.css";
-@import "/tmp/registation/style.css";
+@import "/tmp/reg_auth/style.css";
 
 /*main block*/
 .main{
