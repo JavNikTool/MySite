@@ -13,12 +13,13 @@ $password_confirm = $_POST['password_confirm'];
 if(!empty($login) && !empty($password) && !empty($password_confirm)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
-    RegValidator::CheckPassConfirm($password, $password_confirm);
-    RegValidator::CheckCyrillic($login, $password);
-    RegValidator::CheckLogSymbolLen($login, 6, 16);
-    RegValidator::CheckPassSymbolLen($password, 6, 16);
-    RegValidator::CheckLoginUnuq($conn, $login);
-    RegValidator::CheckPassUnuq($conn, $password);
+    $regValidator = new RegValidator(log: $login, pass: $password, pass_conf: $password_confirm);
+    $regValidator->CheckPassConfirm();
+    $regValidator->CheckCyrillic();
+    $regValidator->CheckLogSymbolLen(logMin: 6, logMax: 16);
+    $regValidator->CheckPassSymbolLen(passMin: 6, passMax: 16);
+    $regValidator->CheckLoginUnuq(conn: $conn);
+    $regValidator->CheckPassUnuq(conn: $conn);
 
     Registration::Record($conn, $password, $login);
 }else {
