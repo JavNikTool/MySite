@@ -4,7 +4,7 @@ namespace core\Registration;
 
 class Registration
 {
-    public static function Record($conn,$pass, $log)
+    public static function insertUser($conn, $pass, $log)
     {
         $sth = $conn->prepare("INSERT INTO users (login, password) VALUES (:login, :password)");
         $sth->execute([

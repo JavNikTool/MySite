@@ -7,17 +7,20 @@ class RegValidator
     private ?string $log = null;
     private ?string $pass = null;
     private ?string $pass_conf = null;
+    private ?\PDO $conn = null;
 
-    public function __construct($log, $pass, $pass_conf)
+
+    public function __construct($log, $pass, $pass_conf, $conn)
     {
         $this->log = $log;
         $this->pass = $pass;
         $this->pass_conf = $pass_conf;
+        $this->conn = $conn;
     }
 
 
     // проверяем совпадает ли пароль с паролем-подтверждением
-    public function CheckPassConfirm(): void
+    public function checkPassConfirm(): void
     {
         if ($this->pass !== $this->pass_conf) {
             header('Location: /?reload=true&rae=true');
@@ -26,7 +29,7 @@ class RegValidator
     }
 
     // проверка на кириллицу
-    public function CheckCyrillic(): void
+    public function checkCyrillic(): void
     {
         if (preg_match("/[а-яА-Я]/", $this->log) || preg_match("/[а-яА-Я]/", $this->pass)){
             header('Location: /?kirillica=true&rae=true');
@@ -35,7 +38,7 @@ class RegValidator
     }
 
     // проверка кол-ва символов логина
-    public function CheckLogSymbolLen($logMin, $logMax): void
+    public function checkLogSymbolLen($logMin, $logMax): void
     {
         if(strlen($this->log) < $logMin || strlen($this->log) > $logMax){
             header('Location: /?count=true&rae=true');
@@ -44,7 +47,7 @@ class RegValidator
     }
 
     // проверка кол-ва символов пароля
-    public function CheckPassSymbolLen($passMin, $passMax): void
+    public function checkPassSymbolLen($passMin, $passMax): void
     {
         if(strlen($this->pass) < $passMin || strlen($this->pass) > $passMax){
             header('Location: /?count=true&rae=true');
@@ -53,9 +56,9 @@ class RegValidator
     }
 
     // проверка уникальности логина
-    public function CheckLoginUnuq($conn): void
+    public function checkLoginUnuq(): void
     {
-        $sth = $conn->prepare('SELECT id FROM users where login = :login');
+        $sth = $this->conn->prepare('SELECT id FROM users where login = :login');
         $sth->execute(['login' => $this->log]);
         if (count($sth->fetchAll()) > 0){
             $sth = null;
@@ -66,9 +69,9 @@ class RegValidator
 
 
     // проверка уникальности пароля
-    public function CheckPassUnuq($conn): void
+    public function checkPassUnuq(): void
     {
-        $sth = $conn->query('SELECT password FROM users');
+        $sth = $this->conn->query('SELECT password FROM users');
         while ($res = $sth->fetch(\PDO::FETCH_ASSOC)){
             if (password_verify($this->pass, $res['password'])){
                 $sth = null;
