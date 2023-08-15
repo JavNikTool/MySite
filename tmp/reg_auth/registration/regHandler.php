@@ -1,37 +1,26 @@
 <?php
 ini_set('display_errors', E_ALL);
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/registration/RegValidator.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/registration/Registration.php';
 
-define('LOGIN', $_POST['loginReg']);
-define('PASSWORD', $_POST['passwordReg']);
-define('PASSWORD_CONFIRM', $_POST['password_confirm']);
+use core\Registration\RegValidator;
+use core\Registration\Registration;
 
+$login = $_POST['loginReg'];
+$password = $_POST['passwordReg'];
+$password_confirm = $_POST['password_confirm'];
 
-
-// проверяем совпадает ли пароль с паролем-подтверждением
-if (PASSWORD !== PASSWORD_CONFIRM) {
-    header('Location: /?reload=true');
-    die();
-}
-// проверка на кириллицу
-/*if (preg_match("/[а-яА-Я]/", )){
-
-}*/
-
-if(!empty(LOGIN) && !empty(PASSWORD) && !empty(PASSWORD_CONFIRM)) {
+if(!empty($login) && !empty($password) && !empty($password_confirm)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
+    RegValidator::CheckPassConfirm($password, $password_confirm);
+    RegValidator::CheckCyrillic($login, $password);
+    RegValidator::CheckLogSymbolLen($login, 6, 16);
+    RegValidator::CheckPassSymbolLen($password, 6, 16);
+    RegValidator::CheckLoginUnuq($conn, $login);
+    RegValidator::CheckPassUnuq($conn, $password);
 
-
-
-    $sth = $conn->prepare("INSERT INTO users (login, password) VALUES (:login, :password)");
-    $sth->execute([
-        'login' => htmlspecialchars(LOGIN),
-        'password' => htmlspecialchars(password_hash(PASSWORD, PASSWORD_DEFAULT))
-    ]);
-    $sth = null;
-    header('Location: /');
-    die();
-
+    Registration::Record($conn, $password, $login);
 }else {
     header('Location: /');
     die();

@@ -3,7 +3,20 @@
         Регистрация
     </h2>
     <form method="POST" action="/tmp/reg_auth/registration/regHandler.php" class="form">
-
+        <?php
+        if(isset($_GET['kirillica']) && $_GET['kirillica'] == 'true') {
+            echo "<p id='passError'>Недопустимые символы. Допускается использование только латинских букв и цифр.</p>";
+        }
+        elseif (isset($_GET['uniq']) && $_GET['uniq'] == 'false'){
+            echo "<p id='passError'>Логин занят!</p>";
+        }
+        elseif (isset($_GET['uniqp']) && $_GET['uniqp'] == 'false'){
+            echo "<p id='passError'>Пароль занят!</p>";
+        }
+        elseif (isset($_GET['count']) && $_GET['count'] == 'true'){
+            echo "<p id='passError'>Допустимое количество симоволов: от 6 до 16 символов.</p>";
+        }
+        ?>
         <p><label for="loginReg">Логин:</label></p>
         <input type="text" name="loginReg" id="loginReg"><br><br>
 

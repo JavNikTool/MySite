@@ -13,7 +13,7 @@
 echo $settings->list()['jsPath'];
 echo $settings->list()['ajax'];
 
-if(isset($_GET['reload']) && $_GET['reload'] == 'true'){
+if(isset($_GET['rae']) && $_GET['rae'] == 'true'){
     echo "<script type=\"application/javascript\">regError();</script>";
     unset($_GET['reload']);
 }
