@@ -10,10 +10,15 @@ $login = $_POST['loginReg'];
 $password = $_POST['passwordReg'];
 $password_confirm = $_POST['password_confirm'];
 
-if(!empty($login) && !empty($password) && !empty($password_confirm)) {
+if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
-    $regValidator = new RegValidator(log: $login, pass: $password, pass_conf: $password_confirm, conn: $conn);
+    $regValidator = new RegValidator(
+        log: $login,
+        pass: $password,
+        pass_conf: $password_confirm,
+        conn: $conn
+    );
 
     // проверяем корректность введеных данных при регистрации
     $regValidator->checkPassConfirm();
@@ -24,7 +29,10 @@ if(!empty($login) && !empty($password) && !empty($password_confirm)) {
     $regValidator->checkPassUnuq();
 
     // Если все проверки валидности пройдены - делаем запись в бд
-    Registration::insertUser(conn: $conn, pass: $password, log: $login);
+    Registration::insertUser(
+        conn: $conn,
+        pass: $password,
+        log: $login);
 }else {
     header('Location: /');
     die();

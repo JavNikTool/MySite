@@ -2,12 +2,12 @@
     <h2 class="title">
         Авторизация
     </h2>
-    <form METHOD="post" class="form">
+    <form METHOD="post" class="form" action="/tmp/reg_auth/authorization/authHandler.php">
         <p><label for="loginAuth">Логин:</label></p>
-        <input type="text" name="" autocomplete="on" id="loginAuth"><br><br>
+        <input type="text" name="loginAuth" autocomplete="on" id="loginAuth"><br><br>
 
         <p><label for="passwordAuth">Пароль:</label></p>
-        <input type="Password" name="" id="passwordAuth"><br><br>
+        <input type="Password" name="passwordAuth" id="passwordAuth"><br><br>
 
         <input type="submit" value="Вход">
     </form>

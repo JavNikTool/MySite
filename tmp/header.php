@@ -1,6 +1,6 @@
 <?php
-require_once
-    $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
 ?>
 <!doctype html>
 <html lang="ru">
@@ -46,7 +46,15 @@ require_once
             </div>
         </div>
     </div>
-    <span class="log-in">Посетитель</span>
+    <span class="log-in">
+        <?php
+            if(empty($_SESSION)){
+                echo "Посетитель";
+            }else{
+                echo "добро пожаловать, " . $_SESSION['login'] . '<br>';
+            }
+        ?>
+    </span>
 </header>
 
 <?php
