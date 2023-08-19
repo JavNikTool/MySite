@@ -13,9 +13,10 @@
 echo $settings->list()['jsPath'];
 echo $settings->list()['ajax'];
 
-if(isset($_GET['rae']) && $_GET['rae'] == 'true'){
+if(isset($_GET['reg_err']) && $_GET['reg_err'] == 'true'){
     echo "<script type=\"application/javascript\">regError();</script>";
-    unset($_GET['reload']);
+}elseif (isset($_GET['auth_err']) && $_GET['auth_err'] == 'true') {
+    echo "<script type=\"application/javascript\">authError();</script>";
 }
 ?>
 </body>

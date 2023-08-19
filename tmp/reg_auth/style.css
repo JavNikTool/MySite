@@ -1,4 +1,4 @@
-.registation_form,
+.registration_form,
 .authorization_form
 {
     position: fixed;
@@ -16,7 +16,7 @@
     border:2px solid black;
     display: none;
 }
-.auth_form_wrap
+.auth-reg_form_wrap
 {
     position: fixed;
     z-index: 5;
@@ -26,7 +26,7 @@
     display: none;
 }
 
-.registation_form .form input,
+.registration_form .form input,
 .authorization_form .form input
 {
     width: 100%;
@@ -34,7 +34,7 @@
     border-radius: 5px;
     font-size: 18px;
 }
-.registation_form input[type="text"], .registation_form input[type="password"],
+.registration_form input[type="text"], .registration_form input[type="password"],
 .authorization_form input[type="text"], .authorization_form input[type="password"]
 {
     text-align: left;
@@ -43,7 +43,7 @@
     font-size: 20px;
     font-weight: 600;
 }
-.registation_form .form label,
+.registration_form .form label,
 .authorization_form .form label
 {
     margin-bottom: 0;
@@ -51,19 +51,19 @@
     font-size: 20px;
     font-weight: 600;
 }
-.registation_form .form p,
+.registration_form .form p,
 .authorization_form .form p
 {
     margin-bottom: 5px;
     text-align: start;
 }
-.registation_form .form input:focus,
+.registration_form .form input:focus,
 .authorization_form .form input:focus
 {
     outline: 1px solid black;
     background-color: #edf7ff;
 }
-.registation_form input[type='submit'],
+.registration_form input[type='submit'],
 .authorization_form input[type='submit']
 {
     margin-top: 80px;
@@ -80,7 +80,7 @@
 .authorization_form input[type='submit']{
     margin-top: 20px;
 }
-.registation_form .title,
+.registration_form .title,
 .authorization_form .title
 {
     margin-bottom: 20px;
@@ -88,12 +88,12 @@
 .form_active{
     display: block;
 }
-.registation_form .form_log-in,
+.registration_form .form_log-in,
 .authorization_form .form_log-in
 {
     margin-top: 35px;
 }
-.registation_form .close,
+.registration_form .close,
 .authorization_form .close
 {
     position: absolute;
@@ -106,4 +106,29 @@
 #passError{
     font-size: 18px;
     color: red;
+}
+
+.visitors_block{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.welcom{
+    color: white;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.sessDestr{
+    background: none;
+    border: none;
+    color: wheat;
+    cursor: pointer;
+    margin-right: 15px;
+    font-size: 16px;
+    border: 2px solid #22acdd;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
 }

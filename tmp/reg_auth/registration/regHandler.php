@@ -32,7 +32,8 @@ if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     Registration::insertUser(
         conn: $conn,
         pass: $password,
-        log: $login);
+        log: $login
+    );
 }else {
     header('Location: /');
     die();

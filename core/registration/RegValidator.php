@@ -23,7 +23,7 @@ class RegValidator
     public function checkPassConfirm(): void
     {
         if ($this->pass !== $this->pass_conf) {
-            header('Location: /?reload=true&rae=true');
+            header('Location: /?reload=true&reg_err=true');
             die();
         }
     }
@@ -32,7 +32,7 @@ class RegValidator
     public function checkCyrillic(): void
     {
         if (preg_match("/[а-яА-Я]/", $this->log) || preg_match("/[а-яА-Я]/", $this->pass)) {
-            header('Location: /?kirillica=true&rae=true');
+            header('Location: /?kirillica=true&reg_err=true');
             die();
         }
     }
@@ -41,7 +41,7 @@ class RegValidator
     public function checkLogSymbolLen($logMin, $logMax): void
     {
         if (strlen($this->log) < $logMin || strlen($this->log) > $logMax) {
-            header('Location: /?count=true&rae=true');
+            header('Location: /?count=true&reg_err=true');
             die();
         }
     }
@@ -50,7 +50,7 @@ class RegValidator
     public function checkPassSymbolLen($passMin, $passMax): void
     {
         if (strlen($this->pass) < $passMin || strlen($this->pass) > $passMax) {
-            header('Location: /?count=true&rae=true');
+            header('Location: /?count=true&reg_err=true');
             die();
         }
     }
@@ -63,7 +63,7 @@ class RegValidator
 
         if (count($sth->fetchAll()) > 0) {
             $sth = null;
-            header('Location: /?uniq=false&rae=true');
+            header('Location: /?uniq=false&reg_err=true');
             die();
         }
     }
@@ -77,7 +77,7 @@ class RegValidator
         while ($res = $sth->fetch(\PDO::FETCH_ASSOC)) {
             if (password_verify($this->pass, $res['password'])) {
                 $sth = null;
-                header('Location: /?uniqp=false&rae=true');
+                header('Location: /?uniqp=false&reg_err=true');
                 die();
             }
         }

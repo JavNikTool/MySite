@@ -46,15 +46,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
             </div>
         </div>
     </div>
-    <span class="log-in">
-        <?php
-            if(empty($_SESSION)){
-                echo "Посетитель";
-            }else{
-                echo "добро пожаловать, " . $_SESSION['login'] . '<br>';
-            }
-        ?>
-    </span>
+        <div class="visitors_block">
+            <?php
+                if (!empty($_SESSION['login'])) {
+                    echo "<span class='welcom'>$_SESSION[login]</span>";
+                    ?>
+                    <form action="/tmp/exitHandler.php" method="post">
+                        <input class="sessDestr" type="submit" value="выход">
+                    </form>
+                    <?php
+                }else {
+                    echo "<span class='log-in'>Посетитель</span>";
+                }
+            ?>
+        </div>
 </header>
 
 <?php

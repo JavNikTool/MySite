@@ -1,4 +1,4 @@
-<section class="registation_form">
+<section class="registration_form">
     <h2 class="title">
         Регистрация
     </h2>
@@ -37,6 +37,6 @@
     <span class="close">X</span>
 </section>
 
-<div class="auth_form_wrap">
+<div class="auth-reg_form_wrap">
 
 </div>

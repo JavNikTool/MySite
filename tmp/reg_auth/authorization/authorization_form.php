@@ -3,6 +3,12 @@
         Авторизация
     </h2>
     <form METHOD="post" class="form" action="/tmp/reg_auth/authorization/authHandler.php">
+        <?php
+        if(isset($_GET['auth']) && $_GET['auth'] == 'false') {
+            echo "<p id='passError'>Неверный логин или пароль.</p>";
+        }
+        ?>
+
         <p><label for="loginAuth">Логин:</label></p>
         <input type="text" name="loginAuth" autocomplete="on" id="loginAuth"><br><br>
 
@@ -16,6 +22,6 @@
     <span class="close">X</span>
 </section>
 
-<div class="auth_form_wrap">
+<div class="auth-reg_form_wrap">
 
 </div>
