@@ -1,6 +1,6 @@
 <?php
 
-namespace core\Authorization;
+namespace core\user\authorization;
 class Authorization
 {
     private ?string $login = null;
@@ -40,7 +40,7 @@ class Authorization
 
             if (count($sth->fetch(\PDO::FETCH_ASSOC)) > 0 && password_verify($this->password, $hash)) {
 
-                $_SESSION['login'] = $this->password;
+                $_SESSION['login'] = $this->login;
                 $_SESSION['password'] = $hash;
                 header('Location: /');
 

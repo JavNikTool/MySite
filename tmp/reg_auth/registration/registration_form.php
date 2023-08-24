@@ -16,6 +16,9 @@
         elseif (isset($_GET['count']) && $_GET['count'] == 'true'){
             echo "<p id='passError'>Допустимое количество симоволов: от 6 до 16 символов.</p>";
         }
+        elseif (isset($_GET['empty']) && $_GET['empty'] == 'true'){
+            echo "<p id='passError'>Не заполнено одно из полей.</p>";
+        }
         ?>
         <p><label for="loginReg">Логин:</label></p>
         <input type="text" name="loginReg" id="loginReg"><br><br>
@@ -27,7 +30,7 @@
         <input type="Password" name="password_confirm" id="password_confirm">
 
         <?php
-        if(isset($_GET['reload']) && $_GET['reload'] == 'true') {
+        if(isset($_GET['pass_error']) && $_GET['pass_error'] == 'true') {
             echo "<p id='passError'>Ошибка подтверждения пароля.</p>";
         }
         ?>

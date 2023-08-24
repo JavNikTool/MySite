@@ -10,13 +10,16 @@
 </footer>
 
 <?php
+echo $settings->list()['jsFuncPath'];
 echo $settings->list()['jsPath'];
 echo $settings->list()['ajax'];
 
-if(isset($_GET['reg_err']) && $_GET['reg_err'] == 'true'){
+if(isset($_GET['reg_err']) && $_GET['reg_err'] == 'true') {
     echo "<script type=\"application/javascript\">regError();</script>";
-}elseif (isset($_GET['auth_err']) && $_GET['auth_err'] == 'true') {
+}elseif(isset($_GET['auth_err']) && $_GET['auth_err'] == 'true') {
     echo "<script type=\"application/javascript\">authError();</script>";
+}elseif (isset($_GET['recover_err']) && $_GET['recover_err'] == 'true'){
+    echo "<script type=\"application/javascript\">recoverError();</script>";
 }
 ?>
 </body>

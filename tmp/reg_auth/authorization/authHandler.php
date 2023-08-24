@@ -1,11 +1,10 @@
 <?php
 ini_set('display_errors', E_ALL);
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/authorization/Authorization.php';
-/*require_once $_SERVER['DOCUMENT_ROOT'] . '/core/authorization/User.php';*/
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/authorization/Authorization.php';
 
-/*use core\Authorization\User;*/
-use core\Authorization\Authorization;
+
+use core\user\authorization\Authorization;
 
 
 $login = $_POST['loginAuth'];

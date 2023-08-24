@@ -19,5 +19,6 @@ $settings->title = match ($_SERVER['PHP_SELF'])
 $settings->cssPath = '<link rel="stylesheet" href="/style.css" type="text/css">';
 $settings->jqueryPath = '<script src="/src/js/jquery-3.6.3.min.js" type="application/javascript"></script>';
 $settings->jsPath = '<script src="/src/js/script.js" type="application/javascript"></script>';
+$settings->jsFuncPath = '<script src="/src/js/func.js" type="application/javascript"></script>';
 $settings->preloader = '<script src="/src/js/preloader.js" type="application/javascript"></script>';
 $settings->ajax = '<script async src="/src/js/ajax.js" type="application/javascript"></script>';

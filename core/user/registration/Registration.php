@@ -1,6 +1,6 @@
 <?php
 
-namespace core\Registration;
+namespace core\user\registration;
 
 class Registration
 {

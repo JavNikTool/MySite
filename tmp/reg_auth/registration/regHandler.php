@@ -1,10 +1,10 @@
 <?php
 ini_set('display_errors', E_ALL);
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/registration/RegValidator.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/registration/Registration.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/Validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/registration/Registration.php';
 
-use core\Registration\RegValidator;
-use core\Registration\Registration;
+use core\user\registration\Registration;
+use core\Validator;
 
 $login = $_POST['loginReg'];
 $password = $_POST['passwordReg'];
@@ -13,11 +13,12 @@ $password_confirm = $_POST['password_confirm'];
 if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
-    $regValidator = new RegValidator(
+    $regValidator = new Validator(
         log: $login,
         pass: $password,
         pass_conf: $password_confirm,
-        conn: $conn
+        conn: $conn,
+        error_code: 'reg_err'
     );
 
     // проверяем корректность введеных данных при регистрации
@@ -35,6 +36,6 @@ if (!empty($login) && !empty($password) && !empty($password_confirm)) {
         log: $login
     );
 }else {
-    header('Location: /');
+    header('Location: /?empty=true&reg_err=true');
     die();
 }

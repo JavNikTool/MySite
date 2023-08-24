@@ -65,4 +65,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/reg_auth/authorization/authorization_form.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/reg_auth/registration/registration_form.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/reg_auth/pass_recovery/password_recovery.php';
 ?>

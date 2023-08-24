@@ -1,21 +1,24 @@
 <?php
 
-namespace core\Registration;
+namespace core;
 
-class RegValidator
+class Validator
 {
     private ?string $log = null;
     private ?string $pass = null;
     private ?string $pass_conf = null;
     private ?\PDO $conn = null;
 
+    private ?string $error_code = null;
 
-    public function __construct($log, $pass, $pass_conf, $conn)
+
+    public function __construct($log, $pass, $pass_conf, $conn, $error_code)
     {
         $this->log = $log;
         $this->pass = $pass;
         $this->pass_conf = $pass_conf;
         $this->conn = $conn;
+        $this->error_code = $error_code;
     }
 
 
@@ -23,7 +26,7 @@ class RegValidator
     public function checkPassConfirm(): void
     {
         if ($this->pass !== $this->pass_conf) {
-            header('Location: /?reload=true&reg_err=true');
+            header("Location: /?pass_error=true&$this->error_code=true");
             die();
         }
     }
@@ -32,7 +35,7 @@ class RegValidator
     public function checkCyrillic(): void
     {
         if (preg_match("/[а-яА-Я]/", $this->log) || preg_match("/[а-яА-Я]/", $this->pass)) {
-            header('Location: /?kirillica=true&reg_err=true');
+            header("Location: /?kirillica=true&$this->error_code=true");
             die();
         }
     }
@@ -41,7 +44,7 @@ class RegValidator
     public function checkLogSymbolLen($logMin, $logMax): void
     {
         if (strlen($this->log) < $logMin || strlen($this->log) > $logMax) {
-            header('Location: /?count=true&reg_err=true');
+            header("Location: /?count=true&$this->error_code=true");
             die();
         }
     }
@@ -50,7 +53,7 @@ class RegValidator
     public function checkPassSymbolLen($passMin, $passMax): void
     {
         if (strlen($this->pass) < $passMin || strlen($this->pass) > $passMax) {
-            header('Location: /?count=true&reg_err=true');
+            header("Location: /?count=true&$this->error_code=true");
             die();
         }
     }
@@ -63,7 +66,7 @@ class RegValidator
 
         if (count($sth->fetchAll()) > 0) {
             $sth = null;
-            header('Location: /?uniq=false&reg_err=true');
+            header("Location: /?uniq=false&$this->error_code=true");
             die();
         }
     }
@@ -77,9 +80,21 @@ class RegValidator
         while ($res = $sth->fetch(\PDO::FETCH_ASSOC)) {
             if (password_verify($this->pass, $res['password'])) {
                 $sth = null;
-                header('Location: /?uniqp=false&reg_err=true');
+                header("Location: /?uniqp=false&$this->error_code=true");
                 die();
             }
+        }
+    }
+
+    // проверяем имеется ли такой логин в бд
+    public function checkLogin(): void
+    {
+        $sth = $this->conn->prepare('SELECT id FROM users WHERE login = :login');
+        $sth->execute(['login' => $this->log]);
+        $userId = $sth->fetch(\PDO::FETCH_ASSOC);
+
+        if(!isset($userId['id'])){
+            header('Location: /?login=false&recover_err=true');
         }
     }
 }

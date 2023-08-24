@@ -1,0 +1,33 @@
+<?php
+ini_set('display_errors', E_ALL);
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/Validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/pass_recovery/PassRecovery.php';
+
+use core\Validator;
+use core\user\pass_recovery\PassRecovery;
+
+$login = $_POST['loginRecovery'];
+$password = $_POST['passwordRecovery'];
+$passwordSubmit = $_POST['passwordSubmitRecovery'];
+
+if(!empty($login) && !empty($password) && !empty($passwordSubmit)) {
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
+
+    $recoverValidator = new Validator(
+        log: $login,
+        pass: $password,
+        pass_conf: $passwordSubmit,
+        conn: $conn,
+        error_code: 'recover_err'
+    );
+
+    $recoverValidator->checkLogin();
+    $recoverValidator->checkPassConfirm();
+    $recoverValidator->checkCyrillic();
+    $recoverValidator->checkPassSymbolLen(6, 16);
+
+    PassRecovery::updatePass($conn, $password, $login);
+
+}else {
+    header('Location: /?login=false&recover_err=true');
+}
