@@ -1,10 +1,10 @@
 <?php
 ini_set('display_errors', E_ALL);
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/Validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/Validator.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/registration/Registration.php';
 
 use core\user\registration\Registration;
-use core\Validator;
+use core\user\Validator;
 
 $login = $_POST['loginReg'];
 $password = $_POST['passwordReg'];
@@ -27,7 +27,6 @@ if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     $regValidator->checkLogSymbolLen(logMin: 6, logMax: 16);
     $regValidator->checkPassSymbolLen(passMin: 6, passMax: 16);
     $regValidator->checkLoginUnuq();
-    $regValidator->checkPassUnuq();
 
     // Если все проверки валидности пройдены - делаем запись в бд
     Registration::insertUser(
@@ -35,6 +34,7 @@ if (!empty($login) && !empty($password) && !empty($password_confirm)) {
         pass: $password,
         log: $login
     );
+
 }else {
     header('Location: /?empty=true&reg_err=true');
     die();

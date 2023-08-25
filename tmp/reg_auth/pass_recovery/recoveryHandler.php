@@ -1,10 +1,10 @@
 <?php
 ini_set('display_errors', E_ALL);
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/Validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/Validator.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/pass_recovery/PassRecovery.php';
 
-use core\Validator;
 use core\user\pass_recovery\PassRecovery;
+use core\user\Validator;
 
 $login = $_POST['loginRecovery'];
 $password = $_POST['passwordRecovery'];
@@ -26,8 +26,13 @@ if(!empty($login) && !empty($password) && !empty($passwordSubmit)) {
     $recoverValidator->checkCyrillic();
     $recoverValidator->checkPassSymbolLen(6, 16);
 
-    PassRecovery::updatePass($conn, $password, $login);
+    PassRecovery::updatePass(
+        conn:$conn,
+        pass: $password,
+        log: $login
+    );
 
 }else {
     header('Location: /?login=false&recover_err=true');
+    die();
 }

@@ -4,11 +4,12 @@
     </h2>
     <form METHOD="post" class="form" action="/tmp/reg_auth/pass_recovery/recoveryHandler.php">
         <?php
-        if(isset($_GET['pass_error']) && $_GET['pass_error'] == 'true') {
-            echo "<p id='passError'>Ошибка подтверждения пароля.</p>";
-        }
-        elseif (isset($_GET['login']) && $_GET['login'] == 'false') {
+
+        if(isset($_GET['login']) && $_GET['login'] == 'false') {
             echo "<p id='passError'>Неверный логин.</p>";
+        }
+        elseif(isset($_GET['pass_error']) && $_GET['pass_error'] == 'true') {
+            echo "<p id='passError'>Ошибка подтверждения пароля.</p>";
         }
         elseif(isset($_GET['kirillica']) && $_GET['kirillica'] == 'true') {
             echo "<p id='passError'>Недопустимые символы. Допускается использование только латинских букв и цифр.</p>";

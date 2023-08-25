@@ -14,7 +14,7 @@ class Authorization
         $this->login = $login;
         $this->password = $password;
         $this->conn = $conn;
-        $this->hash = $this->getHash();
+        $this->hash = $this->getHash(); // получаем хэш из базы соответствующий указанному логину
     }
 
 
@@ -26,6 +26,7 @@ class Authorization
         return $sth->fetch(\PDO::FETCH_ASSOC);
     }
 
+    // проверяем имеется ли такой юзер в базе
     public function checkUser(): void
     {
         if(!empty($this->hash)) {
@@ -38,17 +39,21 @@ class Authorization
                 'password' => $hash
             ]);
 
-            if (count($sth->fetch(\PDO::FETCH_ASSOC)) > 0 && password_verify($this->password, $hash)) {
+            // обязательно проверяем соответствует ли вытащенный из базы хэш паролю, который ввел пользователь
+            if (!empty($sth->fetch(\PDO::FETCH_ASSOC)) && password_verify($this->password, $hash)) {
 
                 $_SESSION['login'] = $this->login;
                 $_SESSION['password'] = $hash;
                 header('Location: /');
+                die();
 
             }else {
                 header('Location: /?auth=false&auth_err=true');
+                die();
             }
         }else {
            header('Location: /?auth=false&auth_err=true');
+            die();
         }
     }
 }

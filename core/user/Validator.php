@@ -1,6 +1,6 @@
 <?php
 
-namespace core;
+namespace core\user;
 
 class Validator
 {
@@ -61,10 +61,10 @@ class Validator
     // проверка уникальности логина
     public function checkLoginUnuq(): void
     {
-        $sth = $this->conn->prepare('SELECT id FROM users where login = :login');
+        $sth = $this->conn->prepare('SELECT id FROM users WHERE login = :login');
         $sth->execute(['login' => $this->log]);
 
-        if (count($sth->fetchAll()) > 0) {
+        if (!empty($sth->fetchAll())) {
             $sth = null;
             header("Location: /?uniq=false&$this->error_code=true");
             die();
@@ -72,29 +72,15 @@ class Validator
     }
 
 
-    // проверка уникальности пароля
-    public function checkPassUnuq(): void
-    {
-        $sth = $this->conn->query('SELECT password FROM users');
-
-        while ($res = $sth->fetch(\PDO::FETCH_ASSOC)) {
-            if (password_verify($this->pass, $res['password'])) {
-                $sth = null;
-                header("Location: /?uniqp=false&$this->error_code=true");
-                die();
-            }
-        }
-    }
-
     // проверяем имеется ли такой логин в бд
     public function checkLogin(): void
     {
         $sth = $this->conn->prepare('SELECT id FROM users WHERE login = :login');
         $sth->execute(['login' => $this->log]);
-        $userId = $sth->fetch(\PDO::FETCH_ASSOC);
 
-        if(!isset($userId['id'])){
-            header('Location: /?login=false&recover_err=true');
+        if(empty($sth->fetchAll())){
+            header("Location: /?login=false&$this->error_code=true");
+            die();
         }
     }
 }
