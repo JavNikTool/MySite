@@ -35,12 +35,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
 <header>
     <div class="container">
         <div class="header_main">
-            <a href="/index.php" class="header_main_wrap ajax">
+            <a href="/" class="header_main_wrap ajax">
                     <div class="header_main_logo"><img src="/src/img/logo/css.png" alt="css"></div>
                     <div class=" header_main_logo"><img src="/src/img/logo/html.png" alt="html"></div>
                     <div class="header_main_logo"><img src="/src/img/logo/php.png" alt="php"></div>
             </a>
-            <p>Добро пожаловать на сайт-персональный блог <span>Никиты Кремнева</span></p>
+            <p>Добро пожаловать на сайт-персональный блог <br> <span>Никиты Кремнева</span></p>
             <div class="header_main_photo">
                 <img src="/src/img/photo/ph.jpg" alt="myPhoto">
             </div>
