@@ -1,0 +1,26 @@
+body{
+    background-color: antiquewhite;
+}
+.admin_wrap{
+    padding: 50px;
+    border: 2px solid black;
+    width: max-content;
+    margin: 300px auto;
+    border-radius: 15px;
+}
+.admin_wrap span{
+    font-size: 32px;
+}
+.admin_wrap input[type=text],.admin_wrap input[type=password] {
+    width: 300px;
+    padding: 5px;
+    outline: none;
+    font-size: 25px;
+}
+
+.admin_wrap input[type=submit] {
+    margin-top: 30px;
+    font-size: 25px;
+    padding: 5px;
+    width: 300px;
+}
