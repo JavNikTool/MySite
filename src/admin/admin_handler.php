@@ -14,6 +14,7 @@ if(!empty($login) && !empty($password)) {
 
     if($user->isAdmin()){
         $_SESSION['login'] = $login;
+        header('Location: /admin/start');
     }
     else {
         header('Location: /');

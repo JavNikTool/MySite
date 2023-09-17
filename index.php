@@ -24,5 +24,13 @@ Router::route('/contacts', function(){
 Router::route('/admin', function(){
     include 'src/admin/index.php';
 });
+Router::route('/admin/start', function(){
+    include 'src/admin/start.php';
+});
+
+Router::route('/admin/insert', function(){
+    include 'src/admin/insert.php';
+});
 
 Router::execute($_SERVER['REQUEST_URI']);
+
