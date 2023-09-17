@@ -6,8 +6,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
 
 <section class="blog">
     <div class="container">
-        <div>
-
+        <div class="blog_wrap">
+            <div class="blog_element">
+                1
+            </div>
+            <div class="blog_element">
+                2
+            </div>
+            <div class="blog_element">
+                3
+            </div>
         </div>
     </div>
 </section>

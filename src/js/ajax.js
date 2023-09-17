@@ -1,6 +1,6 @@
 
 /* Ajax */
-$('a.ajax').click(function()
+/*$('a.ajax').click(function()
 {
     var url = $(this).attr('href');
     $.ajax({
@@ -10,4 +10,4 @@ $('a.ajax').click(function()
         }
     });
     return false;
-});
+});*/
