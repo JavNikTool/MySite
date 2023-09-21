@@ -20,7 +20,7 @@ $arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
                     <img src="https://s16.stc.all.kpcdn.net/russia/wp-content/uploads/2019/01/Altai-.jpg" alt="<?=$item['alt']?>" class="preview_logo">
                 <p class="preview_text"><?=$item['text']?></p>
                 <div class="btn_wrap">
-                    <button class="preview_btn">Подробнее</button>
+                    <a class="preview_btn" href="element.php?id=<?=$item['id']?>">Подробнее</a>
                 </div>
             </div>
 

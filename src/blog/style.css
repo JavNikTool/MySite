@@ -55,6 +55,9 @@
     margin-top: 25px;
     border-radius: 15px;
     background-color: #d0ebff;
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
 }
 
 /*

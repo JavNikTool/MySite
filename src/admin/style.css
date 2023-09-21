@@ -1,3 +1,5 @@
+/* вход в админку*/
+
 body{
     background-color: antiquewhite;
 }
@@ -23,4 +25,26 @@ body{
     font-size: 25px;
     padding: 5px;
     width: 300px;
+}
+
+/*Админка*/
+
+.admin_nav {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.admin_nav a {
+    font-size: 20px;
+}
+
+/*Настройки блога*/
+
+.admin_blog_wrap {
+    display: flex;
+    justify-content: space-around;
+}
+.update_submit{
+    margin-top: 200px;
 }

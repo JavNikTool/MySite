@@ -12,9 +12,10 @@ if(!empty($login) && !empty($password)) {
 
     $user = new \core\user\User($login, $password, $conn);
 
-    if($user->isAdmin()){
+    if($user->UserCheck() && $user->isAdmin()){
         $_SESSION['login'] = $login;
-        header('Location: /admin/start');
+        $_SESSION['admin'] = true;
+        header('Location: /admin/settings');
     }
     else {
         header('Location: /');

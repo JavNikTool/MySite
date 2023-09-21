@@ -1,5 +1,11 @@
 <?php
+session_start();
+if (!$_SESSION['admin']) {
+    header('Location: /');
+}
+
 ini_set('display_errors', E_ALL);
+
 $title = $_REQUEST['title'];
 $img_path = $_REQUEST['img_path'];
 $alt = $_REQUEST['alt'];
@@ -10,5 +16,8 @@ if(!empty($title) && !empty($img_path) && !empty($alt) && !empty($text)) {
 
     $conn->query("insert into blog(title, img, img_alt, text)
 values ('$title', '$img_path', '$alt', '$text')");
-    header('Location: /blog');
+
+    header('Location: /admin/settings/blog');
+}else{
+    header('Location: /admin/settings/blog');
 }
