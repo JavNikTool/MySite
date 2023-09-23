@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="admin_wrap">
-    <form action="/src/admin/admin_handler.php" method="post">
+    <form action="/admin/admin_handler" method="post">
         <span>Логин: </span><br>
         <input type="text" name="adm_log" id=""><br>
         <span>Пароль: </span><br>

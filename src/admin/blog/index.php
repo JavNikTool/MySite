@@ -19,9 +19,9 @@ if(!$_SESSION['admin']){
     <div class="admin_blog_wrap">
         <div class="admin_blog_insert_wrap">
             <h2>Добавить элемент в блог</h2>
-            <form action="<?=basename($_SERVER['PHP_SELF'])?>/insert" method="post">
+            <form action="/admin/insert" method="post" enctype="multipart/form-data">
                 Название поста <br> <input type="text" name="title" id=""><br>
-                Путь к картинке <br> <input type="text" name="img_path" id=""><br>
+                Путь к картинке <br> <input type="file" name="img_path" id=""><br>
                 тег alt картинки <br> <input type="text" name="alt" id=""><br>
                 текст <br> <input type="text" name="text" id=""><br><br>
 
@@ -30,7 +30,7 @@ if(!$_SESSION['admin']){
 
 
             <h2>Удалить элемент в блоге</h2>
-            <form action="<?=basename($_SERVER['PHP_SELF'])?>/delete" method="post">
+            <form action="/admin/delete" method="post">
                 id элемента, который надо удалить <br> <input type="text" name="id" id=""><br><br>
 
                 <input type="submit" value="Удалить">
@@ -38,7 +38,7 @@ if(!$_SESSION['admin']){
 
 
             <h2>Изменить элемент в блоге</h2>
-            <form action="<?=basename($_SERVER['PHP_SELF'])?>/update" method="post">
+            <form action="/admin/update" method="post">
                 id элемента, который надо изменить <br> <input type="text" name="id" id=""><br><br>
 
                 <input type="submit" value="Изменить">
@@ -46,7 +46,7 @@ if(!$_SESSION['admin']){
         </div>
         <div class="admin_blog_select_wrap">
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-            $stm = $conn->query('SELECT * FROM blog');
+            $stm = $conn->query('SELECT * FROM blog ORDER BY date desc');
 
             $arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
             ?>
@@ -58,7 +58,7 @@ if(!$_SESSION['admin']){
                     <div class="blog_element">
                         <h3>id = <?=$item['id']?></h3>
                         <h2 class="title"><?=$item['title']?></h2>
-                        <img src="https://s16.stc.all.kpcdn.net/russia/wp-content/uploads/2019/01/Altai-.jpg" alt="<?=$item['alt']?>" class="preview_logo">
+                        <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
                         <p class="preview_text"><?=$item['text']?></p>
                         <div class="btn_wrap">
                             <button class="preview_btn">Подробнее</button>

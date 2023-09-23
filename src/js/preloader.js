@@ -1,5 +1,6 @@
 /* preloader */
 if(typeof intervalVar === 'undefined' && typeof counter === 'undefined'){
+
     let intervalVar = setInterval(preloaderInterval, 500);
     let counter = 0;
 

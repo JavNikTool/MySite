@@ -17,7 +17,7 @@ session_start();
 <body>
 <div class="container">
     <div class="admin_nav">
-        <a href="<?=basename($_SERVER['PHP_SELF'])?>/blog">Настройки блога</a>
+        <a href="/admin/blog">Настройки блога</a>
         <a href="">Настройки сайта</a>
     </div>
 </div>

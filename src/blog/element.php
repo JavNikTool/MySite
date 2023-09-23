@@ -4,7 +4,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/nav_aside.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
-$stm = $conn->query("SELECT * FROM blog WHERE id = $_GET[id]");
+$id = basename($_SERVER['REQUEST_URI']);
+
+$stm = $conn->query("SELECT * FROM blog WHERE id = $id");
 
 $arResult = $stm->fetch(PDO::FETCH_ASSOC);
 

@@ -17,5 +17,5 @@ if(!empty($title) && !empty($img_path) && !empty($alt) && !empty($text)) {
 
     $conn->query("update blog set title = '$title', img = '$img_path', img_alt = '$alt', text = '$text' where id = $id");
 
-    header("Location: /admin/settings/blog/update?id=$id");
+    header("Location: /admin/update?id=$id");
 }
