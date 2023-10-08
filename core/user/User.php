@@ -19,7 +19,8 @@ class User
     public function isAdmin(): bool {
         if(self::UserCheck()){
             $login = $this->properties['login'];
-            $sth = $this->conn->query("SELECT admin FROM users WHERE login = '$login'");
+            $sth = $this->conn->prepare("SELECT admin FROM users WHERE login = :login");
+            $sth->execute(['login' => $login]);
             $isAdmin = $sth->fetch(\PDO::FETCH_ASSOC)['admin'];
             return $isAdmin;
         }else {
@@ -52,7 +53,6 @@ class User
             // обязательно проверяем соответствует ли вытащенный из базы хэш паролю, который ввел пользователь
             if (!empty($sth->fetch(\PDO::FETCH_ASSOC)) && password_verify($this->properties['password'], $hash)) {
                 return true;
-
             }else {
                 return false;
             }

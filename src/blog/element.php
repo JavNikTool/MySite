@@ -13,5 +13,11 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
-<h2><?=$arResult['title']?></h2>
+<div class="container">
+    <div class="blog_element">
+        <h2 class="blog_element_title"><?=$arResult['title']?></h2>
+        <img class="blog_element_img" src="<?=$arResult['img']?>" alt=""><br>
+        <p class="blog_element_text"><?=$arResult['text']?></p>
+    </div>
+</div>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/footer.php'; ?>

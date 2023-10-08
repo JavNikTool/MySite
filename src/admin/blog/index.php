@@ -3,6 +3,9 @@ session_start();
 if(!$_SESSION['admin']){
     header('Location: /');
 }
+require_once 'vendor/autoload.php';
+
+use core\components\blog\Blog;
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,51 +26,49 @@ if(!$_SESSION['admin']){
                 Название поста <br> <input type="text" name="title" id=""><br>
                 Путь к картинке <br> <input type="file" name="img_path" id=""><br>
                 тег alt картинки <br> <input type="text" name="alt" id=""><br>
-                текст <br> <input type="text" name="text" id=""><br><br>
+                текст <br> <textarea name="text" id=""></textarea><br><br>
 
                 <input type="submit" value="Добавить">
             </form><br><br>
-
-
-            <h2>Удалить элемент в блоге</h2>
-            <form action="/admin/delete" method="post">
-                id элемента, который надо удалить <br> <input type="text" name="id" id=""><br><br>
-
-                <input type="submit" value="Удалить">
-            </form><br><br>
-
-
-            <h2>Изменить элемент в блоге</h2>
-            <form action="/admin/update" method="post">
-                id элемента, который надо изменить <br> <input type="text" name="id" id=""><br><br>
-
-                <input type="submit" value="Изменить">
-            </form>
         </div>
         <div class="admin_blog_select_wrap">
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-            $stm = $conn->query('SELECT * FROM blog ORDER BY date desc');
+            <?php
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
-            $arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
-            ?>
+            try {
+                $arResult = Blog::getList($conn);
+                ?>
 
-            <div class="blog_wrap">
+                <div class="blog_wrap">
 
-                <?php foreach ($arResult as $item):?>
+                    <?php foreach ($arResult as $item):?>
 
-                    <div class="blog_element">
-                        <h3>id = <?=$item['id']?></h3>
-                        <h2 class="title"><?=$item['title']?></h2>
-                        <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
-                        <p class="preview_text"><?=$item['text']?></p>
-                        <div class="btn_wrap">
-                            <button class="preview_btn">Подробнее</button>
+                        <div class="blog_element">
+                            <form action="/admin/delete?id=<?=$item['id']?>" method="post">
+                                <input type="submit" value="Удалить" class="blog_element_delete">
+                            </form>
+                            <form action="/admin/update?id=<?=$item['id']?>" method="post">
+                                <input type="submit" value="Изменить" class="blog_element_update">
+                            </form>
+                            <h3>id = <?=$item['id']?></h3>
+                            <h2 class="title"><?=$item['title']?></h2>
+                            <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
+                            <p class="preview_text"><?=$item['text']?></p>
+                            <div class="btn_wrap">
+                                <button class="preview_btn">Подробнее</button>
+                            </div>
                         </div>
-                    </div>
 
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-            </div>
+                </div>
+
+                <?php
+            }
+            catch (Exception $e){
+                echo "ошибка в файле: " . "<br>" . $e->getFile() . "<br>" . " строка: " . $e->getLine() . "<br>" . " некорректно указан тип сортировки";
+            }
+            ?>
         </div>
     </div>
 </div>

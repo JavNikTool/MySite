@@ -2,10 +2,11 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/nav_aside.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
+require_once 'vendor/autoload.php';
 
-$stm = $conn->query('SELECT * FROM blog ORDER BY date desc');
+use core\components\blog\Blog;
 
-$arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
+$arResult = Blog::getList($conn)
 
 ?>
 
@@ -16,8 +17,9 @@ $arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($arResult as $item):?>
 
             <div class="blog_element">
+                <span class="time"><?=substr($item['date'], 0, strpos($item['date'], '.'));?></span>
                 <h2 class="title"><?=$item['title']?></h2>
-                    <img src="https://s16.stc.all.kpcdn.net/russia/wp-content/uploads/2019/01/Altai-.jpg" alt="<?=$item['img_alt']?>" class="preview_logo">
+                    <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
                 <p class="preview_text"><?=$item['text']?></p>
                 <div class="btn_wrap">
                     <a class="preview_btn" href="/blog/element/<?=$item['id']?>">Подробнее</a>

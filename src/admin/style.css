@@ -65,3 +65,16 @@ body{
     border-image: initial;
     text-decoration: none;
 }
+
+.blog_element_delete, .blog_element_update{
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+}
+
+.blog_element_update{
+    right: auto !important;
+    left: 10px;
+}
