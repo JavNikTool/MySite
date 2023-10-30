@@ -12,7 +12,7 @@ class Blog
         $this->conn = $conn;
     }
 
-    public static function getList($conn, $sortType = 'DESC'): array
+    public static function getSortedList($conn, $sortType = 'DESC'): array
     {
         $stm = $conn->query("SELECT * FROM blog ORDER BY date $sortType");
 
@@ -33,6 +33,39 @@ class Blog
             'alt' => $alt,
             'text' => $text
         ]);
+    }
+ 
+    public function updateBlogElement($id, $title, $alt, $text, Image|bool $image): void
+    {
+        if($image)
+        {
+            $full_path = $image->getFullPath();
+            $img_path = substr("$full_path", strpos("$full_path", '/uploads'));
+
+            if(file_exists($_SERVER['DOCUMENT_ROOT'] . self::getImagePath($id)))
+            {
+                Image::deleteImage(self::getImagePath($id));
+            }
+
+            $sth = $this->conn->prepare("update blog set title = :title, img = :img, img_alt = :alt, text = :text where id = :id");
+            $sth->execute([
+                'title' => $title,
+                'img' => $img_path,
+                'alt' => $alt,
+                'text' => $text,
+                'id' => $id
+            ]);
+        }else
+        {
+            $sth = $this->conn->prepare("update blog set title = :title, img_alt = :alt, text = :text where id = :id");
+            $sth->execute([
+                'title' => $title,
+                'alt' => $alt,
+                'text' => $text,
+                'id' => $id
+            ]);
+        }
+
     }
 
     public function deleteBlogElementById($id): void

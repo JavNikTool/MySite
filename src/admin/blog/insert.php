@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @var $conn
+ */
+
+
 session_start();
 if (!$_SESSION['admin']) {
     header('Location: /');
@@ -10,6 +15,7 @@ use core\image\Image;
 use core\components\blog\Blog;
 
 ini_set('display_errors', E_ALL);
+
 
 $title = $_REQUEST['title'];
 $tmp_name = $_FILES['img_path']['tmp_name'];

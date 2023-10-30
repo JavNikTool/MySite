@@ -18,6 +18,8 @@ $settings->title = match ($_SERVER['PHP_SELF'])
     };
 $settings->cssPath = '<link rel="stylesheet" href="/style.css" type="text/css">';
 $settings->jqueryPath = '<script src="/src/js/jquery-3.6.3.min.js" type="application/javascript"></script>';
+$settings->tinyCdn = '<script src="https://cdn.tiny.cloud/1/ioealj9f1t2upeyf1w0jp41ee18qqltr987i589ovtgox92j/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>';
+$settings->JqueryToTiny = '<script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js"></script>';
 $settings->jsPath = '<script src="/src/js/script.js" type="application/javascript"></script>';
 $settings->jsFuncPath = '<script src="/src/js/func.js" type="application/javascript"></script>';
 $settings->preloader = '<script src="/src/js/preloader.js" type="application/javascript"></script>';

@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @var $conn
+ * @var $settings
+ */
+
+
 session_start();
 if(!$_SESSION['admin']){
     header('Location: /');
@@ -22,13 +29,13 @@ use core\components\blog\Blog;
     <div class="admin_blog_wrap">
         <div class="admin_blog_insert_wrap">
             <h2>Добавить элемент в блог</h2>
-            <form action="/admin/insert" method="post" enctype="multipart/form-data">
-                Название поста <br> <input type="text" name="title" id=""><br>
-                Путь к картинке <br> <input type="file" name="img_path" id=""><br>
+            <form action="/admin/insert" method="post" enctype="multipart/form-data" id="admin_insert_frm">
+                Название поста <br> <input type="text" name="title" id="title"><br>
+                Путь к картинке <br> <input type="file" name="img_path" id="file"><br>
                 тег alt картинки <br> <input type="text" name="alt" id=""><br>
-                текст <br> <textarea name="text" id=""></textarea><br><br>
+                текст <br> <textarea name="text" class="tinymce_textarea"></textarea><br><br>
 
-                <input type="submit" value="Добавить">
+                <input type="submit" value="Добавить" >
             </form><br><br>
         </div>
         <div class="admin_blog_select_wrap">
@@ -36,7 +43,7 @@ use core\components\blog\Blog;
             require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
             try {
-                $arResult = Blog::getList($conn);
+                $arResult = Blog::getSortedList($conn);
                 ?>
 
                 <div class="blog_wrap">
@@ -72,5 +79,12 @@ use core\components\blog\Blog;
         </div>
     </div>
 </div>
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
+echo $settings->list()['jqueryPath'];
+echo $settings->list()['tinyCdn'];
+echo $settings->list()['JqueryToTiny'];
+?>
+<script src="/src/js/tinymce_admin.js"></script>
 </body>
 </html>

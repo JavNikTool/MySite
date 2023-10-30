@@ -1,6 +1,12 @@
 <?php
+
+/**
+ * @var $conn
+ */
+
 ini_set('display_errors', E_ALL);
 session_start();
+require_once 'vendor/autoload.php';
 
 use core\user\User;
 
@@ -9,7 +15,6 @@ $password = $_REQUEST['adm_pass'];
 
 if(!empty($login) && !empty($password)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/User.php';
 
     $user = new User($login, $password, $conn);
 

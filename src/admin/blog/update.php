@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @var $conn
+ * @var $settings
+ */
+
+
 session_start();
 if (!$_SESSION['admin']) {
     header('Location: /');
@@ -43,7 +50,7 @@ if(!empty($id)) {
                     Название поста <br> <input type="text" name="title" id="" value="<?=$res['title']?>"><br>
                     Путь к картинке <br> <input type="file" name="img_path" id=""><br>
                     тег alt картинки <br> <input type="text" name="alt" id="" value="<?=$res['img_alt']?>"><br>
-                    текст <br> <input type="text" name="text" id="" value="<?=$res['text']?>"><br><br>
+                    текст <br> <textarea name="text" class="tinymce_textarea"><?=$res['text']?></textarea><br><br>
                     <input type="hidden" name="id" value="<?=$res['id']?>">
 
                     <input type="submit" value="Изменить"> <br><br>
@@ -70,5 +77,12 @@ if(!empty($id)) {
 <?php else: header('Location: /admin/blog'); endif;?>
 
 
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
+echo $settings->list()['jqueryPath'];
+echo $settings->list()['tinyCdn'];
+echo $settings->list()['JqueryToTiny'];
+?>
+<script src="/src/js/tinymce_admin.js"></script>
 </body>
 </html>

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @var $conn
+ */
+
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/nav_aside.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
@@ -6,7 +12,7 @@ require_once 'vendor/autoload.php';
 
 use core\components\blog\Blog;
 
-$arResult = Blog::getList($conn)
+$arResult = Blog::getSortedList($conn)
 
 ?>
 
