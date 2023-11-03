@@ -12,6 +12,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addGroup('/blog', function (\FastRoute\RouteCollector $r) {
         $r->get('', '/src/blog/index.php');
         $r->get('/element/{id:\d+}', '/src/blog/element.php');
+        $r->post('/element_handler', '/src/blog/element_handler.php');
     });
 
     $r->addGroup('/admin', function (\FastRoute\RouteCollector $r) {

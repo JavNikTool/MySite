@@ -25,19 +25,24 @@
 
     text-align: center;
 }
-hr{
+.divider_wrap{
     position: relative;
+    width: 75px;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+.divider{
     width: 12px;
     margin: 20px auto;
-    opacity: 1;
     background-color: #ff6600;
     border-radius: 50%;
     transition: 0.3s;
+    border: none;
 }
-hr:not([size]){
+.divider:not([size]){
 height: 12px;
 }
-hr::after{
+.divider::after{
     position: absolute;
     content: '';
     display: block;
@@ -48,7 +53,7 @@ hr::after{
     left: 18px;
     transform: translateY(25%);
 }
-hr::before{
+.divider::before{
     position: absolute;
     content: '';
     display: block;
@@ -59,8 +64,8 @@ hr::before{
     right: 18px;
     transform: translateY(25%);
 }
-hr:hover{
-    transform: scale(1.5);
+.divider_wrap:hover{
+    filter: drop-shadow(3px 4px 3px grey);
 }
 .about img{
     width: 200px;

@@ -16,7 +16,5 @@ class Registration
         ]);
 
         $sth = null;
-        header('Location: /');
-        die();
     }
 }

@@ -28,6 +28,7 @@
 
         <p><label for="password_confirm">Подтвердите пароль:</label></p>
         <input type="Password" name="password_confirm" id="password_confirm">
+        <input name="url" type="hidden" value="<?=$_SERVER['REQUEST_URI'] = str_contains($_SERVER['REQUEST_URI'], '?') ? strstr($_SERVER['REQUEST_URI'], '?', true) : $_SERVER['REQUEST_URI'];?>">
 
         <?php
         if(isset($_GET['pass_error']) && $_GET['pass_error'] == 'true') {

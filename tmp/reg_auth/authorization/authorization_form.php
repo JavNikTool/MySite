@@ -14,11 +14,11 @@
 
         <p><label for="passwordAuth">Пароль:</label></p>
         <input type="Password" name="passwordAuth" id="passwordAuth"><br><br>
-
+        <input name="url" type="hidden" value="<?=$_SERVER['REQUEST_URI'] = str_contains($_SERVER['REQUEST_URI'], '?') ? strstr($_SERVER['REQUEST_URI'], '?', true) : $_SERVER['REQUEST_URI'];?>">
         <input type="submit" value="Вход">
     </form>
-    <p class="form_log-in">если вы забыли пароль, нажмите <a href="#" class="pass_recovery_activ">восстановить пароль.</a></p>
-    <p class="form_log-in"><a href="#" class="activ_reg_form">Регистрация.</a></p>
+    <p class="form_log-in">если вы забыли пароль, нажмите <a href="" class="pass_recovery_activ">восстановить пароль.</a></p>
+    <p class="form_log-in"><a href="" class="activ_reg_form">Регистрация.</a></p>
     <span class="close">X</span>
 </section>
 

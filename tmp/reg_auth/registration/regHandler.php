@@ -9,6 +9,7 @@ use core\user\Validator;
 $login = $_POST['loginReg'];
 $password = $_POST['passwordReg'];
 $password_confirm = $_POST['password_confirm'];
+$url = $_POST['url'];
 
 if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
@@ -35,7 +36,8 @@ if (!empty($login) && !empty($password) && !empty($password_confirm)) {
         log: $login
     );
 
+    header("Location: $url");
 }else {
-    header('Location: /?empty=true&reg_err=true');
+    header("Location: $url?empty=true&reg_err=true");
     die();
 }

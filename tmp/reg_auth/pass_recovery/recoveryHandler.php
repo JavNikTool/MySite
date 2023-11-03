@@ -9,6 +9,7 @@ use core\user\Validator;
 $login = $_POST['loginRecovery'];
 $password = $_POST['passwordRecovery'];
 $passwordSubmit = $_POST['passwordSubmitRecovery'];
+$url = $_POST['url'];
 
 if(!empty($login) && !empty($password) && !empty($passwordSubmit)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
@@ -33,6 +34,6 @@ if(!empty($login) && !empty($password) && !empty($passwordSubmit)) {
     );
 
 }else {
-    header('Location: /?login=false&recover_err=true');
+    header("Location: $url?login=false&recover_err=true");
     die();
 }

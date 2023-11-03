@@ -27,6 +27,7 @@
 
         <p><label for="passwordSubmitRecovery">Подтвердите пароль: </label></p>
         <input type="Password" name="passwordSubmitRecovery" id="passwordSubmitRecovery"><br><br>
+        <input name="url" type="hidden" value="<?=$_SERVER['REQUEST_URI'] = str_contains($_SERVER['REQUEST_URI'], '?') ? strstr($_SERVER['REQUEST_URI'], '?', true) : $_SERVER['REQUEST_URI'];?>">
 
         <input type="submit" value="Восстановить">
     </form>

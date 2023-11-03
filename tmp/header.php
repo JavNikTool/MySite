@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @var $settings
+ */
+
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
 ?>
@@ -53,6 +58,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
                     ?>
                     <form action="/tmp/exitHandler.php" method="post">
                         <input class="sessDestr" type="submit" value="выход">
+                        <input name="url" type="hidden" value="<?=$_SERVER['REQUEST_URI']?>">
                     </form>
                     <?php
                 }else {

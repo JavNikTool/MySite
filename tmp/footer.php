@@ -22,5 +22,6 @@ if(isset($_GET['reg_err']) && $_GET['reg_err'] == 'true') {
     echo "<script type=\"application/javascript\">recoverError();</script>";
 }
 ?>
+<script src="/src/js/tinymce.js"></script>
 </body>
 </html>

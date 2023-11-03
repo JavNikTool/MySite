@@ -16,12 +16,18 @@ $('.log-in').click(function (){
     authFormHandler();
 });
 
-$('.activ_reg_form').click(function (){
+$('.log-in_blog').click(function (){
+    authFormHandler();
+});
+
+$('.activ_reg_form').click(function (e){
+    e.preventDefault();
     $('.authorization_form').removeClass('form_active');
     $('.registration_form').addClass('form_active');
 });
 
-$('.pass_recovery_activ').click(function () {
+$('.pass_recovery_activ').click(function (e) {
+    e.preventDefault();
     $('.authorization_form').removeClass('form_active');
     $('.pass_recovery_form').addClass('form_active');
 });
