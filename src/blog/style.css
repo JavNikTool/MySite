@@ -99,6 +99,64 @@ body{
     text-decoration: underline;
 }
 
+.addComment{
+    width: 150px;
+    height: 30px;
+    background: azure;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*комментарии*/
+.comment_wrap{
+    border: 2px solid #c8c8c8;
+    border-radius: 20px;
+    height: max-content;
+    width: inherit;
+    margin-bottom: 15px;
+}
+.comment_head{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #9290905c;
+    padding: 0 20px;
+}
+.comment_body{
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+.comment_text{
+    width: 35vw;
+    word-wrap: break-word;
+    border-right: 2px solid #9290905c;
+    padding-right: 20px;
+}
+.comment_body_data{
+    display: flex;
+}
+.comment_body_actions{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.comment_head > h3 > svg {
+    padding-right: 5px;
+}
+.admin_photo{
+    width: 100px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.admin_photo img{
+    width: 100%;
+}
+.deleteCommentBtn, .EditCommentBtn{
+    text-decoration: none;
+    font-size: 20px;
+    width: max-content;
+}
 /*
 .blog_wrap .blog_element .preview_btn:hover{
     background-color: #ffa261;

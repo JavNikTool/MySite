@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @var $conn
+ */
+
 ini_set('display_errors', E_ALL);
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/user/User.php';

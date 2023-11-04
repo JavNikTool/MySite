@@ -5,5 +5,5 @@ $('.tinymce_textarea_blog').tinymce({
     highlight_on_focus: true,
     menubar: 'format',
     plugins: 'code image link',
-    toolbar: 'styles | bold italic fontfamily fontsize forecolor code | aligncenter alignjustify alignright alignleft alignnone | link image'
+    toolbar: 'styles | bold italic fontfamily fontsize forecolor | aligncenter alignjustify alignright alignleft alignnone | link image'
 });

@@ -18,7 +18,12 @@ if(str_contains($blogElementId, '?')){
 
 $stm = $conn->query("SELECT * FROM blog WHERE id = $blogElementId");
 
+if($stm->rowCount() == 0){
+    die("Запись не обнаружена");
+}
+
 $arResult = $stm->fetch(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -37,12 +42,13 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
     if(!empty($_SESSION['login'])):
         $userLogin = $_SESSION['login'];
         ?>
-        <form class="forma" method="post" action="/blog/element_handler">
+        <form method="post" action="/blog/element_handler">
             <textarea name="comment" class="tinymce_textarea_blog"></textarea> <br>
             <input type="hidden" name="userLogin" value="<?=$userLogin?>">
             <input type="hidden" name="blogElementId" value="<?=$blogElementId?>">
-            <input type="submit" value="Отправить">
+            <input class="addComment" type="submit" value="Добавить">
         </form>
+
     <?php else:?>
     <p>Необходима авторизация: <span class='log-in_blog'>Вход</span></p>
     <?php endif;?>
@@ -51,21 +57,36 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
     <h2>Комментарии:</h2>
 
     <?php
-
-    $stm = $conn->query("SELECT * FROM chat WHERE blog_id = $blogElementId");
-    $arResult = $stm->fetch(PDO::FETCH_ASSOC);
-
-    if(is_array($arResult)) {
-        $stm2 = $conn->query("SELECT * FROM chat WHERE blog_id = $blogElementId");
-        $arResult2 = $stm2->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($arResult2 as $value)
+    $stm = $conn->query("SELECT chat.id ,chat.comment, chat.author, chat.time, users.admin FROM chat join users on chat.user_id = users.id where blog_id = $blogElementId");
+    if($stm->rowCount() > 0)
+    {
+        $arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($arResult as $value)
         {
             ?>
-                <div class="">
-                    <p><?=$value['author']?></p>
-                    <p><?=strstr($value['time'], '.', true)?></p>
-                    <div class="">
-                        <p><?=$value['comment']?></p>
+                <div class="comment_wrap">
+                    <div class="comment_head">
+                        <h3><i class="fa-regular fa-user"></i><?=$value['author']?></h3>
+                        <h3><i class="fa-regular fa-clock"></i><?=strstr($value['time'], '.', true)?></h3>
+                    </div>
+
+                    <div class="comment_body">
+                        <div class="comment_body_data">
+                            <?php if($value['admin']):?>
+                                <div class="admin_photo">
+                                    <img src="/src/img/photo/ph.jpg" alt="myPhoto">
+                                </div>
+                            <?php endif;?>
+                            <div class="comment_text">
+                                <?=$value['comment']?>
+                            </div>
+                        </div>
+                        <div class="comment_body_actions">
+                            <?php if (isset($_SESSION['login']) && $_SESSION['login'] === $value['author']): ?>
+                                <a href="" class="EditCommentBtn"><i class="fa-solid fa-pen"></i> редактировать</a>
+                                <a href="/blog/element_delete?cmt=<?=$value['id']?>" class="deleteCommentBtn"><i class="fa-solid fa-xmark"></i> удалить</a>
+                            <?php endif;?>
+                        </div>
                     </div>
                 </div>
             <?php

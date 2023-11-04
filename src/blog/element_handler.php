@@ -17,8 +17,8 @@ if(!empty($blogElementId) && !empty($userLogin) && !empty($comment))
     $stm = $conn->query("select id from users where login = '$userLogin'");
     $userId = $stm->fetch(PDO::FETCH_ASSOC)['id'];
 
-    $stm2 = $conn->prepare("INSERT INTO chat (blog_id, user_id, comment, author) VALUES (:blogElementId, :userId, :comment, :userLogin)");
-    $stm2->execute([
+    $stm = $conn->prepare("INSERT INTO chat (blog_id, user_id, comment, author) VALUES (:blogElementId, :userId, :comment, :userLogin)");
+    $stm->execute([
         'blogElementId' => $blogElementId,
         'userId' => $userId,
         'comment' => $comment,

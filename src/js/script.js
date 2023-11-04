@@ -31,3 +31,18 @@ $('.pass_recovery_activ').click(function (e) {
     $('.authorization_form').removeClass('form_active');
     $('.pass_recovery_form').addClass('form_active');
 });
+let q = document.querySelectorAll('.EditCommentBtn');
+q.forEach((value, key) => {
+    console.log(value)
+    value.click(function (e) {
+        e.preventDefault();
+        this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> сохранить";
+    })
+})
+/*
+$('.EditCommentBtn').click(function (e) {
+    e.preventDefault();
+    this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> сохранить";
+    $('.comment_text').attr("contenteditable", "true");
+    $('.comment_text').css({ border: "1px solid black" });
+})*/

@@ -6,6 +6,7 @@ class User
     private ?array $properties = null;
     private \PDO|null $conn = null;
 
+
     public function __construct($login, $password, $conn)
     {
         $this->properties['login'] = $login;

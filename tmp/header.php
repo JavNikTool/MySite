@@ -25,6 +25,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings_init.php';
     echo $settings->list()['preloader'];
     ?>
     <title><?= $settings->list()['title'];?></title>
+    <script src="https://kit.fontawesome.com/469931a2cf.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- preloader -->
