@@ -24,6 +24,7 @@ if(!empty($blogElementId) && !empty($userLogin) && !empty($comment))
         'comment' => $comment,
         'userLogin' => $userLogin
     ]);
+
     header("Location: $referer");
     die();
 }else

@@ -12,8 +12,9 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addGroup('/blog', function (\FastRoute\RouteCollector $r) {
         $r->get('', '/src/blog/index.php');
         $r->get('/element/{id:\d+}', '/src/blog/element.php');
-        $r->get('/element_delete', '/src/blog/element_delete.php');
+        $r->post('/element_delete', '/src/blog/element_delete.php');
         $r->post('/element_handler', '/src/blog/element_handler.php');
+        $r->post('/element_update', '/src/blog/element_update.php');
     });
 
     $r->addGroup('/admin', function (\FastRoute\RouteCollector $r) {
@@ -28,6 +29,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
         $r->addRoute([ 'GET' , 'POST' ], '/update', '/src/admin/blog/update.php');
         $r->addRoute([ 'GET' , 'POST' ], '/update_submit', '/src/admin/blog/update_submit.php');
     });
+    // тестовый файл, не забудь удалить
+    $r->post('/test', '/test.php');
 });
 
 

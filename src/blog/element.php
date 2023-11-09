@@ -50,45 +50,63 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
         </form>
 
     <?php else:?>
-    <p>Необходима авторизация: <span class='log-in_blog'>Вход</span></p>
+        <p>Необходима авторизация: <span class='log-in_blog'>Вход</span></p>
     <?php endif;?>
 
 
     <h2>Комментарии:</h2>
 
     <?php
-    $stm = $conn->query("SELECT chat.id ,chat.comment, chat.author, chat.time, users.admin FROM chat join users on chat.user_id = users.id where blog_id = $blogElementId");
+    $stm = $conn->query("SELECT chat.id ,chat.comment, chat.author, chat.time, users.admin FROM chat join users on chat.user_id = users.id where blog_id = $blogElementId order by time");
+
     if($stm->rowCount() > 0)
     {
         $arResult = $stm->fetchAll(PDO::FETCH_ASSOC);
         foreach ($arResult as $value)
         {
             ?>
-                <div class="comment_wrap">
-                    <div class="comment_head">
-                        <h3><i class="fa-regular fa-user"></i><?=$value['author']?></h3>
-                        <h3><i class="fa-regular fa-clock"></i><?=strstr($value['time'], '.', true)?></h3>
-                    </div>
+            <div class="comment_wrap">
+                <div class="comment_head">
+                    <h3><i class="fa-regular fa-user"></i><span class="<?= $value['admin'] ? 'admin_comment_span' : '' ?>"><?=$value['author']?></span></h3>
+                    <h3><i class="fa-regular fa-clock"></i><?=strstr($value['time'], '.', true)?></h3>
+                </div>
 
-                    <div class="comment_body">
-                        <div class="comment_body_data">
-                            <?php if($value['admin']):?>
-                                <div class="admin_photo">
-                                    <img src="/src/img/photo/ph.jpg" alt="myPhoto">
-                                </div>
-                            <?php endif;?>
+                <div class="comment_body">
+                    <div class="comment_body_data">
+
+                        <?php if($value['admin']):?>
+                            <div class="comment_photo">
+                                <img src="/src/img/photo/ph.jpg" alt="myPhoto">
+                            </div>
+                        <?php else:?>
+                            <div class="comment_photo">
+                                <img src="/src/img/logo/php.png" alt="php">
+                            </div>
+                        <?php endif;?>
+
+                        <?php if (isset($_SESSION['login']) && $_SESSION['login'] === $value['author']): ?>
+                            <div class="comment_text" data-comment="yes" data-element-id="<?=$value['id']?>" id="editor">
+                                <?=$value['comment']?>
+                            </div>
+                        <?php else:?>
                             <div class="comment_text">
                                 <?=$value['comment']?>
                             </div>
-                        </div>
-                        <div class="comment_body_actions">
-                            <?php if (isset($_SESSION['login']) && $_SESSION['login'] === $value['author']): ?>
-                                <a href="" class="EditCommentBtn"><i class="fa-solid fa-pen"></i> редактировать</a>
-                                <a href="/blog/element_delete?cmt=<?=$value['id']?>" class="deleteCommentBtn"><i class="fa-solid fa-xmark"></i> удалить</a>
-                            <?php endif;?>
-                        </div>
+                        <?php endif;?>
+
                     </div>
+
+                    <div class="comment_body_actions">
+
+                        <?php if (isset($_SESSION['login']) && $_SESSION['login'] === $value['author']): ?>
+                            <a href="" data-btn-edit="yes" class="EditCommentBtn"><i class="fa-solid fa-pen"></i> редактировать</a>
+                            <a href="" data-btn-delete="yes" class="deleteCommentBtn"><i class="fa-solid fa-xmark"></i> удалить</a>
+                        <?php endif;?>
+
+                    </div>
+
                 </div>
+            </div>
             <?php
         }
     }

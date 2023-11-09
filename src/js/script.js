@@ -31,18 +31,73 @@ $('.pass_recovery_activ').click(function (e) {
     $('.authorization_form').removeClass('form_active');
     $('.pass_recovery_form').addClass('form_active');
 });
-let q = document.querySelectorAll('.EditCommentBtn');
-q.forEach((value, key) => {
-    console.log(value)
-    value.click(function (e) {
-        e.preventDefault();
+
+
+// скрипты комментариев в блоге
+
+// кнопка редактирования коммента
+$('[data-btn-edit="yes"]').click(function (e) {
+    e.preventDefault();
+    let current = $(e.target);
+    let indexBtn = current.index('[data-btn-edit="yes"]');
+    if(!tinyMCE.get('editor')) {
         this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> сохранить";
+        $('[data-comment="yes"]').each((index, value) => {
+            if(index == indexBtn) {
+                value.setAttribute("data-tinymce", 'yes')
+                tinymce.init({
+                    selector: '[data-tinymce="yes"]',
+                    height: 250,
+                    width: 900,
+                    language: 'ru',
+                    highlight_on_focus: true,
+                    menubar: 'format',
+                    plugins: 'code image link',
+                    toolbar: 'styles | bold italic fontfamily fontsize forecolor | aligncenter alignjustify alignright alignleft alignnone | link image'
+                })
+
+            }
+        })
+    }
+    else{
+        this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> редактировать";
+        $('[data-comment="yes"]').each((index, value) => {
+            if(index == indexBtn) {
+                tinymce.remove('[data-comment="yes"]');
+                delete value.dataset.tinymce;
+                let data = {data: value.innerHTML, id: value.dataset.elementId};
+                $.ajax({
+                    method: "POST",
+                    url: "/blog/element_update",
+                    dataType: "json",
+                    data: data,
+                })
+            }
+        })
+    }
+
+})
+
+// кнопка удаления коммента
+
+$('[data-btn-delete="yes"]').click(function (e){
+    e.preventDefault();
+    let current = $(e.target);
+    let indexBtn = current.index('[data-btn-delete="yes"]');
+
+    $('[data-comment="yes"]').each((index, value) => {
+        if(index == indexBtn) {
+            let data = {id: value.dataset.elementId};
+            $.ajax({
+                method: "POST",
+                url: "/blog/element_delete",
+                dataType: "json",
+                data: data,
+                success: function (request) {
+
+                }
+            })
+            value.closest('.comment_wrap').remove();
+        }
     })
 })
-/*
-$('.EditCommentBtn').click(function (e) {
-    e.preventDefault();
-    this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> сохранить";
-    $('.comment_text').attr("contenteditable", "true");
-    $('.comment_text').css({ border: "1px solid black" });
-})*/

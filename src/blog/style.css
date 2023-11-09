@@ -108,6 +108,9 @@ body{
 }
 
 /*комментарии*/
+.admin_comment_span{
+    color: red;
+}
 .comment_wrap{
     border: 2px solid #c8c8c8;
     border-radius: 20px;
@@ -144,12 +147,12 @@ body{
 .comment_head > h3 > svg {
     padding-right: 5px;
 }
-.admin_photo{
+.comment_photo{
     width: 100px;
     margin-right: 20px;
     margin-top: 10px;
 }
-.admin_photo img{
+.comment_photo img{
     width: 100%;
 }
 .deleteCommentBtn, .EditCommentBtn{

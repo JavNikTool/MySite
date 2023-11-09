@@ -6,6 +6,7 @@
 @import "/src/blog/style.css";
 @import "/tmp/reg_auth/style.css";
 @import "/src/admin/style.css";
+@import "src/css/adaptive.css";
 
 /*main block*/
 .main{
@@ -88,3 +89,4 @@
     background: inherit;
     border-radius: 15px;
 }
+

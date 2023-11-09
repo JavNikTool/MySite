@@ -9,11 +9,11 @@ $settings = Settings::get();
 
 
 $settings->description = '<meta name="description" content="блог программиста Никиты Кремнева">';
-$settings->title = match ($_SERVER['PHP_SELF'])
+$settings->title = match (basename($_SERVER['PHP_SELF']))
     {
-         "/about/index.php" => "Обо мне",
-         "/contacts/index.php" => "Связь со мной",
-         "/blog/index.php" => "Блог",
+         "about" => "Обо мне",
+         "contacts" => "Связь со мной",
+         "blog" => "Блог",
          default => "Кремнев Никита персональный сайт",
     };
 $settings->cssPath = '<link rel="stylesheet" href="/style.css" type="text/css">';
