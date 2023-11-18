@@ -17,16 +17,16 @@ $arResult = Blog::getSortedList($conn)
 ?>
 
 <section class="blog">
-    <div class="container">
+    <div class="container_blog">
         <div class="blog_wrap">
 
             <?php foreach ($arResult as $item):?>
 
             <div class="blog_element">
-                <span class="time"><?=substr($item['date'], 0, strpos($item['date'], '.'));?></span>
+                <p class="time"><?=substr($item['date'], 0, strpos($item['date'], '.'));?></p>
                 <h2 class="title"><?=$item['title']?></h2>
                     <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
-                <p class="preview_text"><?=$item['text']?></p>
+                <p class="preview_text"><?=$item['text_preview']?></p>
                 <div class="btn_wrap">
                     <a class="preview_btn" href="/blog/element/<?=$item['id']?>">Подробнее</a>
                 </div>

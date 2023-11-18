@@ -21,6 +21,7 @@ $id = $_REQUEST['id'];
 $title = $_REQUEST['title'];
 $tmp_name = $_FILES['img_path']['tmp_name'];
 $alt = $_REQUEST['alt'];
+$text_preview = $_REQUEST['text_preview'];
 $text = $_REQUEST['text'];
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
@@ -43,7 +44,8 @@ if(is_uploaded_file($tmp_name)) {
         title: $title,
         alt: $alt,
         text: $text,
-        image: $img
+        text_preview: $text_preview,
+        image: $img,
     );
 
     header("Location: /admin/update?id=$id");
@@ -55,6 +57,7 @@ if(is_uploaded_file($tmp_name)) {
         title: $title,
         alt: $alt,
         text: $text,
+        text_preview: $text_preview,
         image: false,
     );
 

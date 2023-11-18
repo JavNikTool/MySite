@@ -38,43 +38,48 @@ $('.pass_recovery_activ').click(function (e) {
 // кнопка редактирования коммента
 $('[data-btn-edit="yes"]').click(function (e) {
     e.preventDefault();
+
+
     let current = $(e.target);
     let indexBtn = current.index('[data-btn-edit="yes"]');
-    if(!tinyMCE.get('editor')) {
-        this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> сохранить";
-        $('[data-comment="yes"]').each((index, value) => {
-            if(index == indexBtn) {
+
+    $('[data-comment="yes"]').each((index, value) => {
+
+        if(index == indexBtn)
+        {
+            if(!tinyMCE.get(`${value.id}`))
+            {
+                this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> сохранить";
                 value.setAttribute("data-tinymce", 'yes')
                 tinymce.init({
                     selector: '[data-tinymce="yes"]',
                     height: 250,
-                    width: 900,
                     language: 'ru',
                     highlight_on_focus: true,
                     menubar: 'format',
-                    plugins: 'code image link',
+                    plugins: 'code image link autoresize',
                     toolbar: 'styles | bold italic fontfamily fontsize forecolor | aligncenter alignjustify alignright alignleft alignnone | link image'
                 })
-
             }
-        })
-    }
-    else{
-        this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> редактировать";
-        $('[data-comment="yes"]').each((index, value) => {
-            if(index == indexBtn) {
-                tinymce.remove('[data-comment="yes"]');
-                delete value.dataset.tinymce;
-                let data = {data: value.innerHTML, id: value.dataset.elementId};
-                $.ajax({
-                    method: "POST",
-                    url: "/blog/element_update",
-                    dataType: "json",
-                    data: data,
+            else{
+
+                this.innerHTML = "<i class=\"fa-solid fa-pen\"></i> редактировать";
+                $('[data-comment="yes"]').each((index, value) => {
+                    if(index == indexBtn) {
+                        tinymce.remove('[data-comment="yes"]');
+                        delete value.dataset.tinymce;
+                        let data = {data: value.innerHTML, id: value.dataset.elementId};
+                        $.ajax({
+                            method: "POST",
+                            url: "/blog/element_update",
+                            dataType: "json",
+                            data: data,
+                        })
+                    }
                 })
             }
-        })
-    }
+        }
+    })
 
 })
 

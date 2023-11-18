@@ -21,21 +21,22 @@ class Blog
         return $arResult;
     }
 
-    public function insertBlogElement($title, $alt, $text, Image $image): void
+    public function insertBlogElement($title, $alt, $text, $text_preview, Image $image): void
     {
         $full_path = $image->getFullPath();
         $img_path = substr("$full_path", strpos("$full_path", '/uploads'));
 
-        $sth = $this->conn->prepare("insert into blog(title, img, img_alt, text) values (:title, :img_path, :alt, :text)");
+        $sth = $this->conn->prepare("insert into blog(title, img, img_alt, text, text_preview) values (:title, :img_path, :alt, :text, :text_preview)");
         $sth->execute([
             'title' => $title,
             'img_path' => $img_path,
             'alt' => $alt,
-            'text' => $text
+            'text' => $text,
+            'text_preview' => $text_preview
         ]);
     }
  
-    public function updateBlogElement($id, $title, $alt, $text, Image|bool $image): void
+    public function updateBlogElement($id, $title, $alt, $text, $text_preview, Image|bool $image): void
     {
         if($image)
         {
@@ -47,22 +48,24 @@ class Blog
                 Image::deleteImage(self::getImagePath($id));
             }
 
-            $sth = $this->conn->prepare("update blog set title = :title, img = :img, img_alt = :alt, text = :text where id = :id");
+            $sth = $this->conn->prepare("update blog set title = :title, img = :img, img_alt = :alt, text = :text, text_preview = :text_preview where id = :id");
             $sth->execute([
                 'title' => $title,
                 'img' => $img_path,
                 'alt' => $alt,
                 'text' => $text,
-                'id' => $id
+                'id' => $id,
+                'text_preview' => $text_preview
             ]);
         }else
         {
-            $sth = $this->conn->prepare("update blog set title = :title, img_alt = :alt, text = :text where id = :id");
+            $sth = $this->conn->prepare("update blog set title = :title, img_alt = :alt, text = :text, text_preview = :text_preview where id = :id");
             $sth->execute([
                 'title' => $title,
                 'alt' => $alt,
                 'text' => $text,
-                'id' => $id
+                'id' => $id,
+                'text_preview' => $text_preview
             ]);
         }
 

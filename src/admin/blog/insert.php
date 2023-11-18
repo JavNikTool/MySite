@@ -20,6 +20,7 @@ ini_set('display_errors', E_ALL);
 $title = $_REQUEST['title'];
 $tmp_name = $_FILES['img_path']['tmp_name'];
 $alt = $_REQUEST['alt'];
+$text_preview = $_REQUEST['text_preview'];
 $text = $_REQUEST['text'];
 
 if(is_uploaded_file($tmp_name) && !empty($title) && !empty($alt) && !empty($text)) {
@@ -40,6 +41,7 @@ if(is_uploaded_file($tmp_name) && !empty($title) && !empty($alt) && !empty($text
         title: $title,
         alt: $alt,
         text: $text,
+        text_preview: $text_preview,
         image: $img
     );
 

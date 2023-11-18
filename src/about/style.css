@@ -2,28 +2,20 @@
     background-color: antiquewhite;
     padding: 60px 0;
 }
-.about{
-    z-index: 1;
-    position: relative;
+.about {
+    font-size: 20px;
+}
+.about::first-letter{
+    color: #ff6605;
+    font-weight: 600;
+    font-size: 35px;
 }
 .about a{
     font-size: 18px;
 }
-.about::before{
-    position: absolute;
-    content: '';
-    display: block;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background-color: #ff66054f;
-    z-index: -1;
-    left: -7px;
-    top: 1px;
-}
 .title{
-
     text-align: center;
+    font-size: 20px;
 }
 .divider_wrap{
     position: relative;

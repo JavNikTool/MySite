@@ -49,6 +49,7 @@ if(!empty($id)) {
                 <form enctype="multipart/form-data" action="/admin/update_submit" method="post" class="update_submit">
                     Название поста <br> <input type="text" name="title" id="" value="<?=$res['title']?>"><br>
                     Путь к картинке <br> <input type="file" name="img_path" id=""><br>
+                    текста анонса <br> <input type="text" name="text_preview" id="" value="<?=$res['text_preview']?>"><br>
                     тег alt картинки <br> <input type="text" name="alt" id="" value="<?=$res['img_alt']?>"><br>
                     текст <br> <textarea name="text" class="tinymce_textarea"><?=$res['text']?></textarea><br><br>
                     <input type="hidden" name="id" value="<?=$res['id']?>">
@@ -64,7 +65,7 @@ if(!empty($id)) {
                         <h3>id = <?=$res['id']?></h3>
                         <h2 class="title"><?=$res['title']?></h2>
                         <img src="<?=$res['img']?>" alt="<?=$res['img_alt']?>" class="preview_logo">
-                        <p class="preview_text"><?=$res['text']?></p>
+                        <p class="preview_text"><?=$res['text_preview']?></p>
                         <div class="btn_wrap">
                             <button class="preview_btn">Подробнее</button>
                         </div>

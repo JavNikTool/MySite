@@ -32,6 +32,7 @@ use core\components\blog\Blog;
             <form action="/admin/insert" method="post" enctype="multipart/form-data" id="admin_insert_frm">
                 Название поста <br> <input type="text" name="title" id="title"><br>
                 Путь к картинке <br> <input type="file" name="img_path" id="file"><br>
+                текста анонса <br> <input type="text" name="text_preview" id=""><br>
                 тег alt картинки <br> <input type="text" name="alt" id=""><br>
                 текст <br> <textarea name="text" class="tinymce_textarea"></textarea><br><br>
 
@@ -50,7 +51,7 @@ use core\components\blog\Blog;
 
                     <?php foreach ($arResult as $item):?>
 
-                        <div class="blog_element">
+                        <div class="blog_element_admin">
                             <form action="/admin/delete?id=<?=$item['id']?>" method="post">
                                 <input type="submit" value="Удалить" class="blog_element_delete">
                             </form>
@@ -60,7 +61,7 @@ use core\components\blog\Blog;
                             <h3>id = <?=$item['id']?></h3>
                             <h2 class="title"><?=$item['title']?></h2>
                             <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
-                            <p class="preview_text"><?=$item['text']?></p>
+                            <p class="preview_text"><?=$item['text_preview']?></p>
                             <div class="btn_wrap">
                                 <button class="preview_btn">Подробнее</button>
                             </div>

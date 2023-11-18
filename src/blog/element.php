@@ -28,7 +28,7 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
-<div class="container">
+<div class="container_blog">
     <div class="blog_element">
         <h2 class="blog_element_title"><?=$arResult['title']?></h2>
         <img class="blog_element_img" src="<?=$arResult['img']?>" alt=""><br>
@@ -42,7 +42,7 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
     if(!empty($_SESSION['login'])):
         $userLogin = $_SESSION['login'];
         ?>
-        <form method="post" action="/blog/element_handler">
+        <form method="post" class="comment_form" action="/blog/element_handler">
             <textarea name="comment" class="tinymce_textarea_blog"></textarea> <br>
             <input type="hidden" name="userLogin" value="<?=$userLogin?>">
             <input type="hidden" name="blogElementId" value="<?=$blogElementId?>">
@@ -85,7 +85,7 @@ $arResult = $stm->fetch(PDO::FETCH_ASSOC);
                         <?php endif;?>
 
                         <?php if (isset($_SESSION['login']) && $_SESSION['login'] === $value['author']): ?>
-                            <div class="comment_text" data-comment="yes" data-element-id="<?=$value['id']?>" id="editor">
+                            <div class="comment_text" data-comment="yes" data-element-id="<?=$value['id']?>" id="editor<?=$value['id']?>">
                                 <?=$value['comment']?>
                             </div>
                         <?php else:?>

@@ -3,6 +3,24 @@
 body{
     background-color: antiquewhite;
 }
+.blog_element_admin{
+    position: relative;
+    border: 3px solid black;
+    padding: 10px 20px 35px 35px;
+    width: 800px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9d2b8;
+}
+
+.blog_wrap .blog_element_admin .btn_wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+}
+
 .admin_wrap{
     padding: 50px;
     border: 2px solid black;
