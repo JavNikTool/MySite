@@ -11,7 +11,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/tmp/header.php";
 
         <div class="container">
             <p class="main_text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio commodi minima similique nesciunt itaque at fugit tempora optio asperiores necessitatibus? Possimus laboriosam, ab vitae similique eos id dolores harum illum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio commodi minima similique nesciunt itaque
+                at fugit tempora optio asperiores necessitatibus? Possimus laboriosam, ab vitae similique eos id dolores
+                harum illum.
             </p>
             <div class="main_buttons">
                 <a class="ajax" href="/contacts">Связь со мной</a>
@@ -36,8 +38,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/tmp/header.php";
                     </div>
                 </div>
                 <aside>
-                    Если вы случайно попали на этот сайт, то вам, наверно, любопытно, какого он вообще нужен,и кто я такой, тогда <i>слушайте:</i><br><br>
-                    Я начинающий программист-самоучка, сайт мне этот нужен для реализации <b>удобного, постоянно подручного для меня пространства</b>, где я смогу вести свои заметки и размышления о своем собственном обучении. <br><br> Я нахожу эту идею достаточно удобной - обзавестись личным "блогом", где помимо аккумуляции нужной мне информации, я смогу обсуждать интересующий материал вместе с пользователями. И если это косвенно поможет в обучении не только мне, но кому-то еще, я буду только рад!
+                    Если вы случайно попали на этот сайт, то вам, наверно, любопытно, какого он вообще нужен,и кто я
+                    такой, тогда <i>слушайте:</i><br><br>
+                    Я начинающий программист-самоучка, сайт мне этот нужен для реализации <b>удобного, постоянно
+                        подручного для меня пространства</b>, где я смогу вести свои заметки и размышления о своем
+                    собственном обучении. <br><br> Я нахожу эту идею достаточно удобной - обзавестись личным "блогом",
+                    где помимо аккумуляции нужной мне информации, я смогу обсуждать интересующий материал вместе с
+                    пользователями. И если это косвенно поможет в обучении не только мне, но кому-то еще, я буду только
+                    рад!
                 </aside>
             </div>
         </div>

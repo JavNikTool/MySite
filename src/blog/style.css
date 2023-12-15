@@ -1,20 +1,24 @@
-body{
+body {
     overflow-x: hidden;
 }
-.blog{
+
+.blog {
     background-color: antiquewhite;
 }
-.container_blog{
+
+.container_blog {
     width: 70%;
     margin: 0 auto;
 }
-.blog_wrap{
+
+.blog_wrap {
     margin: 100px 0;
     display: flex;
     flex-direction: column;
     gap: 10em;
 }
-.blog_wrap .blog_element{
+
+.blog_wrap .blog_element {
     border: 3px solid black;
     padding: 10px 20px 35px 35px;
     width: 800px;
@@ -25,11 +29,12 @@ body{
     background-color: #f9d2b8;
 }
 
-.blog_wrap .blog_element .preview_logo{
+.blog_wrap .blog_element .preview_logo {
     width: 450px;
     object-fit: contain;
     margin-top: 15px;
 }
+
 .blog_wrap .blog_element .title {
     overflow: hidden;
     white-space: nowrap;
@@ -48,11 +53,13 @@ body{
     word-wrap: normal;
     text-overflow: ellipsis;
 }
+
 .blog_wrap .blog_element .btn_wrap {
     display: flex;
     justify-content: flex-end;
     width: 85%;
 }
+
 .blog_wrap .blog_element .preview_btn {
     width: 250px;
     padding: 9px;
@@ -69,38 +76,44 @@ body{
     text-decoration: none;
     color: black;
 }
-.time{
+
+.time {
     width: 100%;
     text-align: end;
     font-size: 18px;
 }
-.blog_element{
+
+.blog_element {
     margin-top: 50px;
     padding-bottom: 100px;
 }
-.blog_element_title{
+
+.blog_element_title {
     text-align: center;
 }
-.blog_element_img{
+
+.blog_element_img {
     display: block;
     margin: 0 auto;
     padding-top: 30px;
     width: 600px;
 }
-.blog_element_text{
+
+.blog_element_text {
     font-size: 20px;
     WIDTH: 1200px;
     margin: 0 auto;
     padding-top: 30px;
 }
-.log-in_blog{
+
+.log-in_blog {
     cursor: pointer;
     font-size: 20px;
     padding: 10px;
     text-decoration: underline;
 }
 
-.addComment{
+.addComment {
     width: 150px;
     height: 30px;
     background: azure;
@@ -109,36 +122,42 @@ body{
 }
 
 /*комментарии*/
-.admin_comment_span{
+.admin_comment_span {
     color: red;
 }
-.comment_wrap{
+
+.comment_wrap {
     border: 2px solid #c8c8c8;
     border-radius: 20px;
     height: max-content;
     width: inherit;
     margin-bottom: 15px;
 }
-.comment_head{
+
+.comment_head {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #9290905c;
     padding: 0 20px;
 }
-.comment_body{
+
+.comment_body {
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
 }
-.comment_text{
+
+.comment_text {
     width: 35vw;
     word-wrap: break-word;
     padding-right: 20px;
 }
-.comment_body_data{
+
+.comment_body_data {
     display: flex;
 }
-.comment_body_actions{
+
+.comment_body_actions {
     width: 16%;
     display: flex;
     flex-direction: column;
@@ -146,26 +165,32 @@ body{
     padding-left: 20px;
     border-left: 2px solid #9290905c;
 }
+
 .comment_head > h3 > svg {
     padding-right: 5px;
 }
-.comment_photo{
+
+.comment_photo {
     min-width: 100px;
     max-width: 100px;
     margin-right: 20px;
     margin-top: 10px;
 }
-.comment_photo img{
+
+.comment_photo img {
     width: 100%;
 }
-.deleteCommentBtn, .EditCommentBtn{
+
+.deleteCommentBtn, .EditCommentBtn {
     text-decoration: none;
     font-size: 20px;
     width: max-content;
 }
-.comment_form{
+
+.comment_form {
     width: 600px;
 }
+
 /*
 .blog_wrap .blog_element .preview_btn:hover{
     background-color: #ffa261;

@@ -23,10 +23,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/header.php';
 </section>
 
 
-
-
-
-
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tmp/footer.php';
 ?>

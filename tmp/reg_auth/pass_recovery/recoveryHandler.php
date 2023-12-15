@@ -11,9 +11,11 @@ $password = $_POST['passwordRecovery'];
 $passwordSubmit = $_POST['passwordSubmitRecovery'];
 $url = $_POST['url'];
 
-if(!empty($login) && !empty($password) && !empty($passwordSubmit)) {
+if (!empty($login) && !empty($password) && !empty($passwordSubmit)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-
+    /**
+     * @var $conn
+     */
     $recoverValidator = new Validator(
         log: $login,
         pass: $password,
@@ -28,12 +30,12 @@ if(!empty($login) && !empty($password) && !empty($passwordSubmit)) {
     $recoverValidator->checkPassSymbolLen(6, 16);
 
     PassRecovery::updatePass(
-        conn:$conn,
+        conn: $conn,
         pass: $password,
         log: $login
     );
 
-}else {
+} else {
     header("Location: $url?login=false&recover_err=true");
     die();
 }

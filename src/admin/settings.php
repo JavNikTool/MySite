@@ -1,8 +1,8 @@
 <?php
 session_start();
-    if(!$_SESSION['admin']){
-        header('Location: /');
-    }
+if (!$_SESSION['admin']) {
+    header('Location: /');
+}
 ?>
 <!doctype html>
 <html lang="en">

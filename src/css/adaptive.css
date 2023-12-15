@@ -1,138 +1,149 @@
 /*header*/
 
-@media screen and (max-width: 1440px){
-    .header_main_logo img{
+@media screen and (max-width: 1440px) {
+    .header_main_logo img {
         width: 85%;
         height: 85%;
     }
 }
 
-@media screen and (max-width: 1024px){
-    .header_main{
+@media screen and (max-width: 1024px) {
+    .header_main {
         align-items: center;
     }
-    body{
+
+    body {
         overflow-x: auto;
     }
 }
 
-@media screen and (max-width: 768px){
-    .header_main_wrap{
+@media screen and (max-width: 768px) {
+    .header_main_wrap {
         display: none;
     }
-    .header_main p{
+
+    .header_main p {
         width: 60%;
     }
-    .header_main{
+
+    .header_main {
         justify-content: flex-start;
     }
 }
 
-@media screen and (max-width: 425px){
-    .container{
+@media screen and (max-width: 425px) {
+    .container {
         width: 95%;
     }
-    .header_main p{
+
+    .header_main p {
         font-size: 15px;
         text-align: start;
         margin: 10px;
     }
-    .log-in{
+
+    .log-in {
         font-size: 15px;
     }
-    .header_main_photo{
+
+    .header_main_photo {
         display: none;
     }
-    .header_main p span{
+
+    .header_main p span {
         font-size: 20px;
     }
 }
 
-@media screen and (max-width: 320px){
-    .header_main p{
+@media screen and (max-width: 320px) {
+    .header_main p {
         font-size: 14px;
     }
 }
 
 /*nav_aside*/
 
-@media screen and (max-width: 1440px){
-    .hidden_nav{
+@media screen and (max-width: 1440px) {
+    .hidden_nav {
         width: 26vw;
     }
 }
 
-@media screen and (max-width: 768px){
-    .hidden_nav{
+@media screen and (max-width: 768px) {
+    .hidden_nav {
         width: 35vw;
     }
 }
 
-@media screen and (max-width: 425px){
-    .hidden_nav{
+@media screen and (max-width: 425px) {
+    .hidden_nav {
         width: 55vw;
     }
 }
 
-@media screen and (max-width: 320px){
-    .hidden_nav{
+@media screen and (max-width: 320px) {
+    .hidden_nav {
         width: 70vw;
     }
 }
 
 /*main*/
 
-@media screen and (max-width: 768px){
-    .info_block_wrap{
+@media screen and (max-width: 768px) {
+    .info_block_wrap {
         flex-direction: column-reverse;
         align-items: center;
         row-gap: 40px;
     }
 }
 
-@media screen and (max-width: 425px){
-    .main_text{
+@media screen and (max-width: 425px) {
+    .main_text {
         width: auto !important;
         font-size: 15px !important;
     }
-    .main_buttons{
+
+    .main_buttons {
         width: auto !important;
     }
-    .main_buttons a.ajax{
+
+    .main_buttons a.ajax {
         font-size: 15px !important;
     }
 }
 
-@media screen and (max-width: 375px){
-    .info_block aside{
+@media screen and (max-width: 375px) {
+    .info_block aside {
         width: 95% !important;
     }
 }
 
-@media screen and (max-width: 320px){
-    .main_buttons a.ajax{
+@media screen and (max-width: 320px) {
+    .main_buttons a.ajax {
         font-size: 12px !important;
     }
 }
 
 /*auth-reg*/
-@media screen and (max-width: 425px){
-    .authorization_form, .registration_form, .pass_recovery_form{
+@media screen and (max-width: 425px) {
+    .authorization_form, .registration_form, .pass_recovery_form {
         width: 95%;
     }
-    .authorization_form .close, .registration_form .close, .pass_recovery_form .close{
+
+    .authorization_form .close, .registration_form .close, .pass_recovery_form .close {
         left: 90%;
     }
 }
 
 /*footer*/
-@media screen and (max-width: 425px){
-    .footer_block{
+@media screen and (max-width: 425px) {
+    .footer_block {
         padding-top: 10px;
     }
 }
-@media screen and (max-width: 320px){
-    .footer_block{
+
+@media screen and (max-width: 320px) {
+    .footer_block {
         font-size: 14px;
         text-align: center;
     }
@@ -140,98 +151,114 @@
 
 /*about*/
 
-@media screen and (max-width: 375px){
-    body > section.about_section > div > div:nth-child(6) > a{
+@media screen and (max-width: 375px) {
+    body > section.about_section > div > div:nth-child(6) > a {
         font-size: 15px;
     }
 }
 
 /*blog*/
 
-@media screen and (max-width: 768px){
-    .blog_element{
+@media screen and (max-width: 768px) {
+    .blog_element {
         width: 100% !important;
     }
-    .container_blog{
+
+    .container_blog {
         width: 95%;
     }
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 425px) {
     .blog_wrap .blog_element .preview_text,
     .blog_wrap .blog_element .preview_logo,
-    .blog_wrap .blog_element .title{
+    .blog_wrap .blog_element .title {
         width: 100%;
     }
-    .blog_wrap{
+
+    .blog_wrap {
         gap: 2em;
     }
 }
 
 /*blog element*/
 
-@media screen and (max-width: 1440px){
-    .comment_wrap{
+@media screen and (max-width: 1440px) {
+    .comment_wrap {
         width: 90vw;
     }
-    .container_blog{
+
+    .container_blog {
         width: 95%;
     }
 }
 
-@media screen and (max-width: 1024px){
-    .comment_wrap{
+@media screen and (max-width: 1024px) {
+    .comment_wrap {
         width: 100%;
     }
-    .comment_text{
+
+    .comment_text {
         width: 60vw;
     }
-    .blog_element_text{
+
+    .blog_element_text {
         width: 100%;
     }
-    .comment_body_actions{
+
+    .comment_body_actions {
         width: 27%;
     }
 }
 
-@media screen and (max-width: 768px){
-    .comment_text{
+@media screen and (max-width: 768px) {
+    .comment_text {
         width: 55vw;
     }
-    .deleteCommentBtn, .EditCommentBtn{
+
+    .deleteCommentBtn, .EditCommentBtn {
         font-size: 16px;
     }
-    .comment_body_actions{
+
+    .comment_body_actions {
         width: 35%;
     }
 }
 
-@media screen and (max-width: 425px){
-    .comment_photo img{
+@media screen and (max-width: 425px) {
+    .comment_photo img {
         width: 75%;
     }
-    .comment_body_actions{
+
+    .comment_body_actions {
         width: auto;
     }
-    .blog_element_img{
+
+    .blog_element_img {
         width: 80%;
     }
-    .comment_wrap{
+
+    .comment_wrap {
         width: 90vw;
     }
-    .comment_photo{
+
+    .comment_photo {
         margin-right: 0px;
     }
-    .comment_body_data{
+
+    .comment_body_data {
         width: 70%;
     }
-    .comment_text{
+
+    .comment_text {
         width: 55vw;
     }
-    .deleteCommentBtn, .EditCommentBtn{
+
+    .deleteCommentBtn, .EditCommentBtn {
         font-size: 12px;
     }
-    .comment_form{
+
+    .comment_form {
         width: 80%;
     }
 }

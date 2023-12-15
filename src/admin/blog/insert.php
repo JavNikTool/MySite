@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @var $conn
- */
-
 
 session_start();
 if (!$_SESSION['admin']) {
@@ -23,7 +19,7 @@ $alt = $_REQUEST['alt'];
 $text_preview = $_REQUEST['text_preview'];
 $text = $_REQUEST['text'];
 
-if(is_uploaded_file($tmp_name) && !empty($title) && !empty($alt) && !empty($text)) {
+if (is_uploaded_file($tmp_name) && !empty($title) && !empty($alt) && !empty($text)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
     $file_name = basename($tmp_name);
@@ -35,7 +31,9 @@ if(is_uploaded_file($tmp_name) && !empty($title) && !empty($alt) && !empty($text
         to: $dir_path,
         permissions: 0777
     );
-
+    /**
+     * @var $conn
+     */
     $blog = new Blog(conn: $conn);
     $blog->insertBlogElement(
         title: $title,
@@ -46,6 +44,6 @@ if(is_uploaded_file($tmp_name) && !empty($title) && !empty($alt) && !empty($text
     );
 
     header('Location: /admin/blog');
-}else{
+} else {
     header('Location: /admin/blog');
 }

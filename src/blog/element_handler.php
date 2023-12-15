@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @var $conn
- */
 
 $blogElementId = $_REQUEST['blogElementId'];
 $userLogin = $_REQUEST['userLogin'];
@@ -10,10 +7,11 @@ $comment = $_REQUEST['comment'];
 $referer = strstr($_SERVER['HTTP_REFERER'], '/blog');
 
 
-if(!empty($blogElementId) && !empty($userLogin) && !empty($comment))
-{
+if (!empty($blogElementId) && !empty($userLogin) && !empty($comment)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-
+    /**
+     * @var $conn
+     */
     $stm = $conn->query("select id from users where login = '$userLogin'");
     $userId = $stm->fetch(PDO::FETCH_ASSOC)['id'];
 
@@ -27,8 +25,7 @@ if(!empty($blogElementId) && !empty($userLogin) && !empty($comment))
 
     header("Location: $referer");
     die();
-}else
-{
+} else {
     header("Location: $referer");
     die();
 }

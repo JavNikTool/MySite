@@ -7,15 +7,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/settings/Settings.php';
 $settings = Settings::get();
 
 
-
 $settings->description = '<meta name="description" content="блог программиста Никиты Кремнева">';
-$settings->title = match (basename($_SERVER['PHP_SELF']))
-    {
-         "about" => "Обо мне",
-         "contacts" => "Связь со мной",
-         "blog" => "Блог",
-         default => "Кремнев Никита персональный сайт",
-    };
+$settings->title = match (basename($_SERVER['PHP_SELF'])) {
+    "about" => "Обо мне",
+    "contacts" => "Связь со мной",
+    "blog" => "Блог",
+    default => "Кремнев Никита персональный сайт",
+};
 $settings->cssPath = '<link rel="stylesheet" href="/style.css" type="text/css">';
 $settings->jqueryPath = '<script src="/src/js/jquery-3.6.3.min.js" type="application/javascript"></script>';
 $settings->tinyCdn = '<script src="https://cdn.tiny.cloud/1/ioealj9f1t2upeyf1w0jp41ee18qqltr987i589ovtgox92j/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>';

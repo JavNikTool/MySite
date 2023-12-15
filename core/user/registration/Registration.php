@@ -8,7 +8,7 @@ class Registration
     {
         $sth = $conn->prepare("INSERT INTO users (login, password) VALUES (:login, :password)");
         $options = [
-          'cost' => 8,
+            'cost' => 8,
         ];
         $sth->execute([
             'login' => htmlspecialchars($log),

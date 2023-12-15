@@ -4,7 +4,7 @@ namespace core\image;
 
 class Image
 {
-    private ?array $properties = null;
+    private array $properties;
 
     public function uploadImageToDir($from, $to, $permissions): void
     {

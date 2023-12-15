@@ -1,18 +1,14 @@
 <?php
 
-/**
- * @var $conn
- * @var $settings
- */
-
 
 session_start();
-if(!$_SESSION['admin']){
+if (!$_SESSION['admin']) {
     header('Location: /');
 }
 require_once 'vendor/autoload.php';
 
 use core\components\blog\Blog;
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,32 +32,37 @@ use core\components\blog\Blog;
                 тег alt картинки <br> <input type="text" name="alt" id=""><br>
                 текст <br> <textarea name="text" class="tinymce_textarea"></textarea><br><br>
 
-                <input type="submit" value="Добавить" >
-            </form><br><br>
+                <input type="submit" value="Добавить">
+            </form>
+            <br><br>
         </div>
         <div class="admin_blog_select_wrap">
             <?php
             require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
 
             try {
+                /**
+                 * @var $conn
+                 * @var $settings
+                 */
                 $arResult = Blog::getSortedList($conn);
                 ?>
 
                 <div class="blog_wrap">
 
-                    <?php foreach ($arResult as $item):?>
+                    <?php foreach ($arResult as $item): ?>
 
                         <div class="blog_element_admin">
-                            <form action="/admin/delete?id=<?=$item['id']?>" method="post">
+                            <form action="/admin/delete?id=<?= $item['id'] ?>" method="post">
                                 <input type="submit" value="Удалить" class="blog_element_delete">
                             </form>
-                            <form action="/admin/update?id=<?=$item['id']?>" method="post">
+                            <form action="/admin/update?id=<?= $item['id'] ?>" method="post">
                                 <input type="submit" value="Изменить" class="blog_element_update">
                             </form>
-                            <h3>id = <?=$item['id']?></h3>
-                            <h2 class="title"><?=$item['title']?></h2>
-                            <img src="<?=$item['img']?>" alt="<?=$item['img_alt']?>" class="preview_logo">
-                            <p class="preview_text"><?=$item['text_preview']?></p>
+                            <h3>id = <?= $item['id'] ?></h3>
+                            <h2 class="title"><?= $item['title'] ?></h2>
+                            <img src="<?= $item['img'] ?>" alt="<?= $item['img_alt'] ?>" class="preview_logo">
+                            <p class="preview_text"><?= $item['text_preview'] ?></p>
                             <div class="btn_wrap">
                                 <button class="preview_btn">Подробнее</button>
                             </div>
@@ -72,8 +73,7 @@ use core\components\blog\Blog;
                 </div>
 
                 <?php
-            }
-            catch (Exception $e){
+            } catch (Exception $e) {
                 echo "ошибка в файле: " . "<br>" . $e->getFile() . "<br>" . " строка: " . $e->getLine() . "<br>" . " некорректно указан тип сортировки";
             }
             ?>

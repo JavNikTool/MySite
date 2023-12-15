@@ -4,7 +4,7 @@ ini_set('display_errors', E_ALL);
 
 require_once 'vendor/autoload.php';
 
-$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+$dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
     $r->get('/', '/src/main/main.php');
     $r->get('/about', '/src/about/index.php');
     $r->get('/contacts', '/src/contacts/index.php');
@@ -24,13 +24,13 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
         $r->get('/blog', '/src/admin/blog/index.php');
         $r->post('/insert/test', '/test.php');
 
-        $r->addRoute([ 'GET' , 'POST' ], '/insert', '/src/admin/blog/insert.php');
-        $r->addRoute([ 'GET' , 'POST' ], '/delete', '/src/admin/blog/delete.php');
-        $r->addRoute([ 'GET' , 'POST' ], '/update', '/src/admin/blog/update.php');
-        $r->addRoute([ 'GET' , 'POST' ], '/update_submit', '/src/admin/blog/update_submit.php');
+        $r->addRoute(['GET', 'POST'], '/insert', '/src/admin/blog/insert.php');
+        $r->addRoute(['GET', 'POST'], '/delete', '/src/admin/blog/delete.php');
+        $r->addRoute(['GET', 'POST'], '/update', '/src/admin/blog/update.php');
+        $r->addRoute(['GET', 'POST'], '/update_submit', '/src/admin/blog/update_submit.php');
     });
     // тестовый файл, не забудь удалить
-    $r->post('/test', '/test.php');
+    /*$r->get('/test', '/test.php');*/
 });
 
 
@@ -47,7 +47,7 @@ $uri = rawurldecode($uri);
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
-        include '404.php';
+        require '404.php';
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];

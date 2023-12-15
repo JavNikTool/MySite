@@ -1,4 +1,5 @@
 <?php
+
 namespace core\components\blog;
 require_once 'vendor/autoload.php';
 
@@ -6,10 +7,8 @@ use core\image\Image;
 
 class Blog
 {
-    private \PDO|null $conn = null;
-    public function __construct($conn)
+    public function __construct(private \PDO $conn)
     {
-        $this->conn = $conn;
     }
 
     public static function getSortedList($conn, $sortType = 'DESC'): array
@@ -35,16 +34,14 @@ class Blog
             'text_preview' => $text_preview
         ]);
     }
- 
+
     public function updateBlogElement($id, $title, $alt, $text, $text_preview, Image|bool $image): void
     {
-        if($image)
-        {
+        if ($image) {
             $full_path = $image->getFullPath();
             $img_path = substr("$full_path", strpos("$full_path", '/uploads'));
 
-            if(file_exists($_SERVER['DOCUMENT_ROOT'] . self::getImagePath($id)))
-            {
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . self::getImagePath($id))) {
                 Image::deleteImage(self::getImagePath($id));
             }
 
@@ -57,8 +54,7 @@ class Blog
                 'id' => $id,
                 'text_preview' => $text_preview
             ]);
-        }else
-        {
+        } else {
             $sth = $this->conn->prepare("update blog set title = :title, img_alt = :alt, text = :text, text_preview = :text_preview where id = :id");
             $sth->execute([
                 'title' => $title,
@@ -73,8 +69,7 @@ class Blog
 
     public function deleteBlogElementById($id): void
     {
-        if(file_exists($_SERVER['DOCUMENT_ROOT'] . self::getImagePath($id)))
-        {
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . self::getImagePath($id))) {
             Image::deleteImage(self::getImagePath($id));
         }
         $sth = $this->conn->prepare("DELETE FROM blog WHERE id = :id");

@@ -4,21 +4,14 @@ namespace core\user;
 
 class Validator
 {
-    private ?string $log = null;
-    private ?string $pass = null;
-    private ?string $pass_conf = null;
-    private ?\PDO $conn = null;
-
-    private ?string $error_code = null;
-
-
-    public function __construct($log, $pass, $pass_conf, $conn, $error_code)
+    public function __construct(
+        private string $log,
+        private string $pass,
+        private string $pass_conf,
+        private \PDO   $conn,
+        private string $error_code
+    )
     {
-        $this->log = $log;
-        $this->pass = $pass;
-        $this->pass_conf = $pass_conf;
-        $this->conn = $conn;
-        $this->error_code = $error_code;
     }
 
 
@@ -78,7 +71,7 @@ class Validator
         $sth = $this->conn->prepare('SELECT id FROM users WHERE login = :login');
         $sth->execute(['login' => $this->log]);
 
-        if(empty($sth->fetchAll())){
+        if (empty($sth->fetchAll())) {
             header("Location: /?login=false&$this->error_code=true");
             die();
         }

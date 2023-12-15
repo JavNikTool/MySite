@@ -13,7 +13,9 @@ $url = $_POST['url'];
 
 if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-
+    /**
+     * @var $conn
+     */
     $regValidator = new Validator(
         log: $login,
         pass: $password,
@@ -37,7 +39,7 @@ if (!empty($login) && !empty($password) && !empty($password_confirm)) {
     );
 
     header("Location: $url");
-}else {
+} else {
     header("Location: $url?empty=true&reg_err=true");
     die();
 }

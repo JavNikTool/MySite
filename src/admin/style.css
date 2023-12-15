@@ -1,9 +1,10 @@
 /* вход в админку*/
 
-body{
+body {
     background-color: antiquewhite;
 }
-.blog_element_admin{
+
+.blog_element_admin {
     position: relative;
     border: 3px solid black;
     padding: 10px 20px 35px 35px;
@@ -21,17 +22,19 @@ body{
     width: 85%;
 }
 
-.admin_wrap{
+.admin_wrap {
     padding: 50px;
     border: 2px solid black;
     width: max-content;
     margin: 300px auto;
     border-radius: 15px;
 }
-.admin_wrap span{
+
+.admin_wrap span {
     font-size: 32px;
 }
-.admin_wrap input[type=text],.admin_wrap input[type=password] {
+
+.admin_wrap input[type=text], .admin_wrap input[type=password] {
     width: 300px;
     padding: 5px;
     outline: none;
@@ -53,6 +56,7 @@ body{
     justify-content: center;
     gap: 50px;
 }
+
 .admin_nav a {
     font-size: 20px;
 }
@@ -63,10 +67,12 @@ body{
     display: flex;
     justify-content: space-around;
 }
-.update_submit{
+
+.update_submit {
     margin-top: 200px;
 }
-.adm_update_back_btn{
+
+.adm_update_back_btn {
     appearance: auto;
     user-select: none;
     align-items: flex-start;
@@ -84,7 +90,7 @@ body{
     text-decoration: none;
 }
 
-.blog_element_delete, .blog_element_update{
+.blog_element_delete, .blog_element_update {
     cursor: pointer;
     position: absolute;
     right: 20px;
@@ -92,7 +98,7 @@ body{
     font-size: 30px;
 }
 
-.blog_element_update{
+.blog_element_update {
     right: auto !important;
     left: 10px;
 }

@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @var $conn
- */
 
 ini_set('display_errors', E_ALL);
 session_start();
@@ -18,23 +15,25 @@ $url = $_POST['url'];
 
 if (!empty($login) && !empty($password)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-
+    /**
+     * @var $conn
+     */
     $user = new User(
         login: $login,
         password: $password,
         conn: $conn
     );
 
-    if($user->UserCheck()){
+    if ($user->UserCheck()) {
         $_SESSION['login'] = $login;
         header("Location: $url");
         die();
-    }else {
+    } else {
         header("Location: $url?auth=false&auth_err=true");
         die();
     }
 
-}else {
-   header("Location: $url?auth=false&auth_err=true");
-   die();
+} else {
+    header("Location: $url?auth=false&auth_err=true");
+    die();
 }

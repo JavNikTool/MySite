@@ -3,28 +3,26 @@
 namespace core\user;
 class User
 {
-    private ?array $properties = null;
-    private \PDO|null $conn = null;
+    private array $properties;
 
-
-    public function __construct($login, $password, $conn)
+    public function __construct($login, $password, private \PDO $conn)
     {
         $this->properties['login'] = $login;
         $this->properties['password'] = $password;
-        $this->conn = $conn;
         $this->properties['hash'] = $this->getHash(); // получаем хэш из базы соответствующий указанному логину
         $this->properties['isAdmin'] = self::isAdmin();
     }
 
     // метод проверяет, является ли пользователь админом
-    public function isAdmin(): bool {
-        if(self::UserCheck()){
+    public function isAdmin(): bool
+    {
+        if (self::UserCheck()) {
             $login = $this->properties['login'];
             $sth = $this->conn->prepare("SELECT admin FROM users WHERE login = :login");
             $sth->execute(['login' => $login]);
             $isAdmin = $sth->fetch(\PDO::FETCH_ASSOC)['admin'];
             return $isAdmin;
-        }else {
+        } else {
             return false;
         }
 
@@ -41,7 +39,7 @@ class User
     // метод проверяет, имеется ли в базе данных пользователь по указанному логину и паролю
     public function UserCheck(): bool
     {
-        if(!empty($this->properties['hash'])) {
+        if (!empty($this->properties['hash'])) {
 
             $hash = $this->properties['hash'];
             $sth = $this->conn->prepare('SELECT id FROM users where login = :login and password = :password');
@@ -54,11 +52,11 @@ class User
             // обязательно проверяем соответствует ли вытащенный из базы хэш паролю, который ввел пользователь
             if (!empty($sth->fetch(\PDO::FETCH_ASSOC)) && password_verify($this->properties['password'], $hash)) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
-        }else {
-           return false;
+        } else {
+            return false;
         }
     }
 }

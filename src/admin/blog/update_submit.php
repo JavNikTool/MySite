@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @var $conn
- */
-
 
 session_start();
 if (!$_SESSION['admin']) {
@@ -25,8 +21,10 @@ $text_preview = $_REQUEST['text_preview'];
 $text = $_REQUEST['text'];
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-
-if(is_uploaded_file($tmp_name)) {
+/**
+ * @var $conn
+ */
+if (is_uploaded_file($tmp_name)) {
 
     $file_name = basename($tmp_name);
     $dir_path = "$_SERVER[DOCUMENT_ROOT]/uploads/$file_name";
@@ -49,7 +47,7 @@ if(is_uploaded_file($tmp_name)) {
     );
 
     header("Location: /admin/update?id=$id");
-}else{
+} else {
 
     $blog = new Blog(conn: $conn);
     $blog->updateBlogElement(

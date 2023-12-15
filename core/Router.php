@@ -27,8 +27,7 @@ class Router
             if (preg_match($pattern, $url, $params)) {
                 array_shift($params);
                 return call_user_func_array($callback, array_values($params));
-            }
-            elseif (preg_match('/^\/\?/', $url, $params)) {
+            } elseif (preg_match('/^\/\?/', $url, $params)) {
                 return require_once 'src/main/main.php';
             }
         }

@@ -8,7 +8,6 @@ class Settings
 
     private function __construct()
     {
-        $properties = [];
     }
 
     private function __clone(): void

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @var $conn
- * @var $settings
- */
-
 
 session_start();
 if (!$_SESSION['admin']) {
@@ -32,27 +27,30 @@ ini_set('display_errors', E_ALL);
 
 $id = $_REQUEST['id'];
 
-if(!empty($id)) {
+if (!empty($id)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/db/db_conn.php';
-
+    /**
+     * @var $conn
+     * @var $settings
+     */
     $blog = new Blog($conn);
     $res = $blog->getBlogElementById($id);
-}else{
+} else {
     header('Location: /admin/blog');
 }
 
 ?>
-<?php if($res) : ?>
+<?php if ($res) : ?>
     <div class="container">
         <div class="admin_blog_wrap">
             <div class="admin_blog_insert_wrap">
                 <form enctype="multipart/form-data" action="/admin/update_submit" method="post" class="update_submit">
-                    Название поста <br> <input type="text" name="title" id="" value="<?=$res['title']?>"><br>
+                    Название поста <br> <input type="text" name="title" id="" value="<?= $res['title'] ?>"><br>
                     Путь к картинке <br> <input type="file" name="img_path" id=""><br>
-                    текста анонса <br> <input type="text" name="text_preview" id="" value="<?=$res['text_preview']?>"><br>
-                    тег alt картинки <br> <input type="text" name="alt" id="" value="<?=$res['img_alt']?>"><br>
-                    текст <br> <textarea name="text" class="tinymce_textarea"><?=$res['text']?></textarea><br><br>
-                    <input type="hidden" name="id" value="<?=$res['id']?>">
+                    текста анонса <br> <input type="text" name="text_preview" id="" value="<?= $res['text_preview'] ?>"><br>
+                    тег alt картинки <br> <input type="text" name="alt" id="" value="<?= $res['img_alt'] ?>"><br>
+                    текст <br> <textarea name="text" class="tinymce_textarea"><?= $res['text'] ?></textarea><br><br>
+                    <input type="hidden" name="id" value="<?= $res['id'] ?>">
 
                     <input type="submit" value="Изменить"> <br><br>
                     <a class="adm_update_back_btn" href="/admin/blog">назад</a>
@@ -62,10 +60,10 @@ if(!empty($id)) {
 
                 <div class="blog_wrap">
                     <div class="blog_element">
-                        <h3>id = <?=$res['id']?></h3>
-                        <h2 class="title"><?=$res['title']?></h2>
-                        <img src="<?=$res['img']?>" alt="<?=$res['img_alt']?>" class="preview_logo">
-                        <p class="preview_text"><?=$res['text_preview']?></p>
+                        <h3>id = <?= $res['id'] ?></h3>
+                        <h2 class="title"><?= $res['title'] ?></h2>
+                        <img src="<?= $res['img'] ?>" alt="<?= $res['img_alt'] ?>" class="preview_logo">
+                        <p class="preview_text"><?= $res['text_preview'] ?></p>
                         <div class="btn_wrap">
                             <button class="preview_btn">Подробнее</button>
                         </div>
@@ -75,7 +73,7 @@ if(!empty($id)) {
             </div>
         </div>
     </div>
-<?php else: header('Location: /admin/blog'); endif;?>
+<?php else: header('Location: /admin/blog'); endif; ?>
 
 
 <?php
