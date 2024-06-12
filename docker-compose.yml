@@ -3,13 +3,15 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres-db
-    restart: always
-  #  user: root
+  #  restart: always
+  #  user: postgres
     environment:
       - 'POSTGRES_PASSWORD=Tassadar321.'
-  #    - 'MSSQL_SA_PASSWORD=testPass1.'
-  #  ports:
-  #    - '1433:1433'
+      - 'POSTGRES_USER=javniktool'
+      - 'POSTGRES_DB=kremnevblog'
+      - 'PGDATA=/var/lib/pgsql/data'
+    ports:
+      - '5432:5432'
   #  volumes:
   #    - '/opt/practica/mssql/data:/var/opt/mssql/data'
   #    - '/opt/practica/mssql/log:/var/opt/mssql/log'

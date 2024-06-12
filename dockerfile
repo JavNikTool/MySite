@@ -1,3 +1,4 @@
+# docker build -t php-nginx-pdo .
 FROM trafex/php-nginx:latest AS php-nginx-pdo
 USER root
 RUN apk add --no-cache \
