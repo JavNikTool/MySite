@@ -1,33 +1,29 @@
-version: '1.0'
+version: '3.3'
 services:
   postgres:
     image: postgres:latest
     container_name: postgres-db
-  #  restart: always
-  #  user: postgres
     environment:
       - 'POSTGRES_PASSWORD=Tassadar321.'
       - 'POSTGRES_USER=javniktool'
       - 'POSTGRES_DB=kremnevblog'
-      - 'PGDATA=/var/lib/pgsql/data'
     ports:
       - '5432:5432'
-  #  volumes:
-  #    - '/opt/practica/mssql/data:/var/opt/mssql/data'
-  #    - '/opt/practica/mssql/log:/var/opt/mssql/log'
+    volumes:
+      - './initdb:/docker-entrypoint-initdb.d'
+      - 'postgres_data:/var/lib/postgresql/data'
   app:
     image: php-nginx-pdo:latest
     container_name: web-app
-    #   restart: always
-    #   user: root
-    #   environment:
-    #     - 'ACCEPT_EULA=Y'
-    #     - 'MSSQL_SA_PASSWORD=testPass1.'
     ports:
       - '80:8080'
     volumes:
       - '.:/var/www/html'
+    depends_on:
+      - postgres
 networks:
   default:
     driver: bridge
     name: webnet
+volumes:
+  postgres_data:
